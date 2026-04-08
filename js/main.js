@@ -74,7 +74,7 @@ if (particleContainer && window.innerWidth > 768) {
 
 
 // ── 點擊 emoji 彈跳 ──
-document.querySelectorAll('.card-icon-wrap, .proj-emoji, .award-icon, .team-avatar, .nav-logo-box').forEach(el => {
+document.querySelectorAll('.card-icon-wrap, .proj-emoji, .award-icon, .team-avatar, .nav-logo-box, .prof-avatar').forEach(el => {
   el.style.cursor = 'pointer';
   el.addEventListener('click', () => {
     el.style.animation = 'none';
@@ -82,3 +82,17 @@ document.querySelectorAll('.card-icon-wrap, .proj-emoji, .award-icon, .team-avat
     el.style.animation = 'jelly 0.5s';
   });
 });
+
+
+// ── 教授學術服務展開/收合 ──
+function toggleServices() {
+  const extra = document.getElementById('serviceExtra');
+  const btn = document.getElementById('expandBtn');
+  if (extra.classList.contains('open')) {
+    extra.classList.remove('open');
+    btn.textContent = '查看更多學術服務 ↓';
+  } else {
+    extra.classList.add('open');
+    btn.textContent = '收合 ↑';
+  }
+}

@@ -495,7 +495,7 @@ section { padding: 100px 40px; }
 
 .research-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
@@ -524,6 +524,7 @@ section { padding: 100px 40px; }
 .research-card[data-color="cyan"] .card-glow    { background: radial-gradient(circle, var(--cyan-glow), transparent 70%); }
 .research-card[data-color="purple"] .card-glow  { background: radial-gradient(circle, var(--purple-glow), transparent 70%); }
 .research-card[data-color="orange"] .card-glow  { background: radial-gradient(circle, var(--orange-glow), transparent 70%); }
+.research-card[data-color="pink"] .card-glow    { background: radial-gradient(circle, rgba(244,114,182,0.25), transparent 70%); }
 
 .research-card:hover .card-glow { opacity: 1; }
 
@@ -540,6 +541,7 @@ section { padding: 100px 40px; }
 .card-icon-wrap.cyan   { background: var(--cyan-soft);   border: 1px solid rgba(94,234,212,0.15); }
 .card-icon-wrap.purple { background: var(--purple-soft); border: 1px solid rgba(192,132,252,0.15); }
 .card-icon-wrap.orange { background: var(--orange-soft); border: 1px solid rgba(251,146,60,0.15); }
+.card-icon-wrap.pink   { background: var(--pink-soft);   border: 1px solid rgba(244,114,182,0.15); }
 
 .research-card:hover .card-icon-wrap {
   animation: jelly 0.5s;
@@ -601,7 +603,7 @@ section { padding: 100px 40px; }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
@@ -669,6 +671,187 @@ section { padding: 100px 40px; }
 .project-card:nth-child(1) .proj-tags span { border-color: rgba(94,234,212,0.2); color: var(--cyan); }
 .project-card:nth-child(2) .proj-tags span { border-color: rgba(192,132,252,0.2); color: var(--purple); }
 .project-card:nth-child(3) .proj-tags span { border-color: rgba(251,146,60,0.2); color: var(--orange); }
+.project-card:nth-child(4) .proj-tags span { border-color: rgba(244,114,182,0.2); color: var(--pink); }
+
+
+/* ====================
+   PROFESSOR
+   ==================== */
+.professor { background: var(--bg-deep); }
+
+.prof-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.prof-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 36px;
+  margin-bottom: 24px;
+}
+
+.prof-avatar {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan-soft), var(--purple-soft));
+  border: 2px solid rgba(94,234,212,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+.prof-avatar img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.prof-info h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.prof-name-en {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--cyan);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.prof-title {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.prof-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prof-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.prof-detail-item a {
+  color: var(--cyan);
+  font-weight: 600;
+}
+.prof-detail-item a:hover { color: var(--purple); }
+
+.pdi-icon { font-size: 0.9rem; }
+
+.prof-expertise, .prof-service {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+}
+
+.prof-expertise h4, .prof-service h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.expertise-tags span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  background: var(--cyan-soft);
+  border: 1px solid rgba(94,234,212,0.15);
+  color: var(--cyan);
+  transition: all 0.3s;
+}
+.expertise-tags span:nth-child(2n) {
+  background: var(--purple-soft);
+  border-color: rgba(192,132,252,0.15);
+  color: var(--purple);
+}
+.expertise-tags span:nth-child(3n) {
+  background: var(--orange-soft);
+  border-color: rgba(251,146,60,0.15);
+  color: var(--orange);
+}
+
+.service-list, .service-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.si-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.si-dot.cyan   { background: var(--cyan); box-shadow: 0 0 6px var(--cyan-glow); }
+.si-dot.purple { background: var(--purple); box-shadow: 0 0 6px var(--purple-glow); }
+.si-dot.orange { background: var(--orange); box-shadow: 0 0 6px var(--orange-glow); }
+.si-dot.pink   { background: var(--pink); box-shadow: 0 0 6px rgba(244,114,182,0.25); }
+
+.service-extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, margin-top 0.3s;
+}
+.service-extra.open {
+  max-height: 500px;
+  margin-top: 10px;
+}
+
+.expand-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 20px;
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.expand-btn:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--cyan);
+  border-color: rgba(94,234,212,0.2);
+}
 
 
 /* ====================
@@ -954,6 +1137,10 @@ footer a:hover { color: var(--purple); }
 
   .research-grid, .projects-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .prof-card { flex-direction: column; text-align: center; padding: 28px 20px; }
+  .prof-avatar { width: 100px; height: 100px; font-size: 2.4rem; }
+  .prof-details { align-items: center; }
 
   .award-item { flex-wrap: wrap; }
   .award-year-badge { order: -1; }
