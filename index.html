@@ -1,428 +1,441 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>System Analysis & Control Lab — Taipei Tech</title>
-<meta name="description" content="國立臺北科技大學 系統分析與控制實驗室 — 練光祐教授指導">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🤖</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Analysis & Control Lab — Taipei Tech</title>
+  <meta name="description" content="國立臺北科技大學 系統分析與控制實驗室 — 練光祐教授指導">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🤖</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<!-- ====== CURSOR GLOW ====== -->
-<div class="cursor-glow" id="cursorGlow"></div>
+  <!-- ====== CURSOR GLOW ====== -->
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- ====== NAV ====== -->
-<nav id="navbar">
-  <div class="nav-brand">
-    <div class="nav-logo-box">
-      <span class="nav-logo-icon">⚙️</span>
+  <!-- ====== NAV ====== -->
+  <nav id="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo-box">
+        <span class="nav-logo-icon">⚙️</span>
+      </div>
+      <div class="logo-text">KY <span>Lab</span></div>
     </div>
-    <div class="logo-text">SAC <span>Lab</span></div>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#hero" class="active">Home</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#professor">Professor</a></li>
-    <li><a href="#team">Members</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="nav-toggle" aria-label="選單">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#professor">Professor</a></li>
+      <li><a href="#team">Members</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- ====== HERO ====== -->
-<section class="hero" id="hero">
-  <div class="hero-particles" id="particles"></div>
-  <div class="hero-grid-bg"></div>
-  <div class="hero-deco">
-    <span class="float-icon f1">🛸</span>
-    <span class="float-icon f2">🔧</span>
-    <span class="float-icon f3">💡</span>
-    <span class="float-icon f4">🚀</span>
-    <span class="float-icon f5">⚡</span>
-    <span class="float-icon f6">🎯</span>
-    <div class="orbit-ring ring1"><div class="orbit-dot"></div></div>
-    <div class="orbit-ring ring2"><div class="orbit-dot"></div></div>
-  </div>
-
-  <div class="hero-content">
-    <div class="hero-chip">
-      <span class="chip-dot"></span>
-      National Taipei University of Technology
-    </div>
-    <h1>
-      <span class="line1">System Analysis</span>
-      <span class="line2">& <span class="gradient-text">Control Lab</span></span>
-    </h1>
-    <p class="hero-sub">系統分析與控制實驗室</p>
-    <p class="hero-desc">
-      指導教授：練光祐 特聘教授<br>
-      專長：音訊處理、AI、智慧家庭、IoT、生理信號量測與分析 🎯<br>
-      嵌入式裝置、智慧型控制 🚀
-    </p>
-    <div class="hero-actions">
-      <a href="#research" class="btn btn-glow">
-        <span>研究領域</span>
-        <span class="btn-arrow">→</span>
-      </a>
-      <a href="#professor" class="btn btn-soft">認識教授 👋</a>
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-deco">
+      <span class="float-icon f1">🛸</span>
+      <span class="float-icon f2">🔧</span>
+      <span class="float-icon f3">💡</span>
+      <span class="float-icon f4">🚀</span>
+      <span class="float-icon f5">⚡</span>
+      <span class="float-icon f6">🎯</span>
+      <div class="orbit-ring ring1">
+        <div class="orbit-dot"></div>
+      </div>
+      <div class="orbit-ring ring2">
+        <div class="orbit-dot"></div>
+      </div>
     </div>
 
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-label">研究領域</div>
+    <div class="hero-content">
+      <div class="hero-chip">
+        <span class="chip-dot"></span>
+        National Taipei University of Technology
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="stat-num">20+</div>
-        <div class="stat-label">年教學經驗</div>
+      <h1>
+        <span class="line1">System Analysis</span>
+        <span class="line2">& <span class="gradient-text">Control Lab</span></span>
+      </h1>
+      <p class="hero-sub">系統分析與控制實驗室</p>
+      <p class="hero-desc">
+        指導教授：練光祐 特聘教授<br>
+        專長：音訊處理、AI、智慧家庭、IoT、生理信號量測與分析 🎯<br>
+        嵌入式裝置、智慧型控制 🚀
+      </p>
+      <div class="hero-actions">
+        <a href="#research" class="btn btn-glow">
+          <span>研究領域</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#professor" class="btn btn-soft">認識教授 👋</a>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="stat-num">50+</div>
-        <div class="stat-label">學術服務</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="hero-scroll" onclick="document.getElementById('research').scrollIntoView({behavior:'smooth'})">
-    <div class="scroll-line"></div>
-    <span>SCROLL</span>
-  </div>
-</section>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-label">研究領域</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">年教學經驗</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">學術服務</div>
+        </div>
+      </div>
+    </div>
 
-<!-- ====== RESEARCH ====== -->
-<section class="research" id="research">
-  <div class="section-header reveal">
-    <div class="section-badge">🔬 Research Areas</div>
-    <h2 class="section-title">主要研究領域</h2>
-    <p class="section-desc">涵蓋節能、無人載具、語音與影像等多元前沿領域</p>
-  </div>
-  <div class="research-grid">
-    <div class="research-card reveal card-hover" data-color="cyan">
-      <div class="card-glow"></div>
-      <div class="card-icon-wrap cyan">
-        <span>⚡</span>
-      </div>
-      <h3>節能優化</h3>
-      <p>研究能源系統之最佳化控制與節能策略，結合 IoT 技術實現智慧能源管理與效率提升。</p>
-      <div class="card-footer">
-        <span class="card-tag">Energy Optimization</span>
-        <span class="card-arrow">→</span>
-      </div>
+    <div class="hero-scroll" onclick="document.getElementById('research').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
     </div>
-    <div class="research-card reveal card-hover" data-color="purple">
-      <div class="card-glow"></div>
-      <div class="card-icon-wrap purple">
-        <span>🛸</span>
-      </div>
-      <h3>無人機 & 自走車</h3>
-      <p>開發無人機與自走車之飛行控制、路徑規劃與自主導航系統，結合嵌入式裝置實現即時控制。</p>
-      <div class="card-footer">
-        <span class="card-tag">Drone & AGV</span>
-        <span class="card-arrow">→</span>
-      </div>
-    </div>
-    <div class="research-card reveal card-hover" data-color="orange">
-      <div class="card-glow"></div>
-      <div class="card-icon-wrap orange">
-        <span>🎙️</span>
-      </div>
-      <h3>語音辨識</h3>
-      <p>運用深度學習與音訊處理技術，研究語音辨識、語者識別與智慧語音互動系統。</p>
-      <div class="card-footer">
-        <span class="card-tag">Speech Recognition</span>
-        <span class="card-arrow">→</span>
-      </div>
-    </div>
-    <div class="research-card reveal card-hover" data-color="pink">
-      <div class="card-glow"></div>
-      <div class="card-icon-wrap pink">
-        <span>📷</span>
-      </div>
-      <h3>影像處理</h3>
-      <p>利用電腦視覺與影像辨識技術，實現物件偵測、影像分類與即時環境感知應用。</p>
-      <div class="card-footer">
-        <span class="card-tag">Image Processing</span>
-        <span class="card-arrow">→</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ====== PROJECTS ====== -->
-<section class="projects" id="projects">
-  <div class="section-header reveal">
-    <div class="section-badge">📂 Featured Projects</div>
-    <h2 class="section-title">研究專案</h2>
-    <p class="section-desc">展示實驗室近期的代表性研究成果</p>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card reveal card-hover">
-      <div class="proj-header">
-        <span class="proj-num">01</span>
-        <span class="proj-emoji">⚡</span>
+  <!-- ====== RESEARCH ====== -->
+  <section class="research" id="research">
+    <div class="section-header reveal">
+      <div class="section-badge">🔬 Research Areas</div>
+      <h2 class="section-title">主要研究領域</h2>
+      <p class="section-desc">涵蓋節能、無人載具、語音與影像等多元前沿領域</p>
+    </div>
+    <div class="research-grid">
+      <div class="research-card reveal card-hover" data-color="cyan">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap cyan">
+          <span>⚡</span>
+        </div>
+        <h3>節能優化</h3>
+        <p>研究能源系統之最佳化控制與節能策略，結合 IoT 技術實現智慧能源管理與效率提升。</p>
+        <div class="card-footer">
+          <span class="card-tag">Energy Optimization</span>
+          <span class="card-arrow">→</span>
+        </div>
       </div>
-      <h3>智慧節能控制系統</h3>
-      <p>結合 IoT 感測器與智慧型控制演算法，實現建築與工業系統的即時能耗監測與最佳化調節。</p>
-      <div class="proj-tags">
-        <span>IoT</span><span>Energy</span><span>Smart Control</span>
+      <div class="research-card reveal card-hover" data-color="purple">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap purple">
+          <span>🛸</span>
+        </div>
+        <h3>無人機 & 自走車</h3>
+        <p>開發無人機與自走車之飛行控制、路徑規劃與自主導航系統，結合嵌入式裝置實現即時控制。</p>
+        <div class="card-footer">
+          <span class="card-tag">Drone & AGV</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+      <div class="research-card reveal card-hover" data-color="orange">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap orange">
+          <span>🎙️</span>
+        </div>
+        <h3>語音辨識</h3>
+        <p>運用深度學習與音訊處理技術，研究語音辨識、語者識別與智慧語音互動系統。</p>
+        <div class="card-footer">
+          <span class="card-tag">Speech Recognition</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+      <div class="research-card reveal card-hover" data-color="pink">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap pink">
+          <span>📷</span>
+        </div>
+        <h3>影像處理</h3>
+        <p>利用電腦視覺與影像辨識技術，實現物件偵測、影像分類與即時環境感知應用。</p>
+        <div class="card-footer">
+          <span class="card-tag">Image Processing</span>
+          <span class="card-arrow">→</span>
+        </div>
       </div>
     </div>
-    <div class="project-card reveal card-hover">
-      <div class="proj-header">
-        <span class="proj-num">02</span>
-        <span class="proj-emoji">🛸</span>
-      </div>
-      <h3>多旋翼無人機自主飛控系統</h3>
-      <p>開發嵌入式飛行控制平台，整合感測融合與路徑規劃演算法，實現自主飛行與避障功能。</p>
-      <div class="proj-tags">
-        <span>Drone</span><span>Embedded</span><span>Navigation</span>
-      </div>
-    </div>
-    <div class="project-card reveal card-hover">
-      <div class="proj-header">
-        <span class="proj-num">03</span>
-        <span class="proj-emoji">🎙️</span>
-      </div>
-      <h3>AI 語音辨識與互動系統</h3>
-      <p>運用深度學習模型進行語音特徵擷取與辨識，應用於智慧家庭語音控制介面。</p>
-      <div class="proj-tags">
-        <span>AI</span><span>Speech</span><span>Deep Learning</span>
-      </div>
-    </div>
-    <div class="project-card reveal card-hover">
-      <div class="proj-header">
-        <span class="proj-num">04</span>
-        <span class="proj-emoji">📷</span>
-      </div>
-      <h3>自走車視覺導引系統</h3>
-      <p>利用影像處理與物件偵測技術，實現自走車的即時環境感知與自主路徑追蹤。</p>
-      <div class="proj-tags">
-        <span>Vision</span><span>AGV</span><span>Object Detection</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ====== PROFESSOR ====== -->
-<section class="professor" id="professor">
-  <div class="section-header reveal">
-    <div class="section-badge">👨‍🏫 Professor</div>
-    <h2 class="section-title">指導教授</h2>
-  </div>
-  <div class="prof-container reveal">
-    <div class="prof-card">
-      <div class="prof-avatar">
-        <!-- 替換為實際照片：<img src="images/professor.jpg" alt="練光祐教授"> -->
-        <span>👨‍🏫</span>
+  <!-- ====== PROJECTS ====== -->
+  <section class="projects" id="projects">
+    <div class="section-header reveal">
+      <div class="section-badge">📂 Featured Projects</div>
+      <h2 class="section-title">研究專案</h2>
+      <p class="section-desc">展示實驗室近期的代表性研究成果</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal card-hover">
+        <div class="proj-header">
+          <span class="proj-num">01</span>
+          <span class="proj-emoji">⚡</span>
+        </div>
+        <h3>智慧節能控制系統</h3>
+        <p>結合 IoT 感測器與智慧型控制演算法，實現建築與工業系統的即時能耗監測與最佳化調節。</p>
+        <div class="proj-tags">
+          <span>IoT</span><span>Energy</span><span>Smart Control</span>
+        </div>
       </div>
-      <div class="prof-info">
-        <h3>練光祐 教授</h3>
-        <p class="prof-name-en">Kuang-Yow Lian</p>
-        <p class="prof-title">特聘教授 · 電機工程系</p>
-        <div class="prof-details">
-          <div class="prof-detail-item">
-            <span class="pdi-icon">🏫</span>
-            <span>電資學院 · 電機工程系</span>
+      <div class="project-card reveal card-hover">
+        <div class="proj-header">
+          <span class="proj-num">02</span>
+          <span class="proj-emoji">🛸</span>
+        </div>
+        <h3>多旋翼無人機自主飛控系統</h3>
+        <p>開發嵌入式飛行控制平台，整合感測融合與路徑規劃演算法，實現自主飛行與避障功能。</p>
+        <div class="proj-tags">
+          <span>Drone</span><span>Embedded</span><span>Navigation</span>
+        </div>
+      </div>
+      <div class="project-card reveal card-hover">
+        <div class="proj-header">
+          <span class="proj-num">03</span>
+          <span class="proj-emoji">🎙️</span>
+        </div>
+        <h3>AI 語音辨識與互動系統</h3>
+        <p>運用深度學習模型進行語音特徵擷取與辨識，應用於智慧家庭語音控制介面。</p>
+        <div class="proj-tags">
+          <span>AI</span><span>Speech</span><span>Deep Learning</span>
+        </div>
+      </div>
+      <div class="project-card reveal card-hover">
+        <div class="proj-header">
+          <span class="proj-num">04</span>
+          <span class="proj-emoji">📷</span>
+        </div>
+        <h3>自走車視覺導引系統</h3>
+        <p>利用影像處理與物件偵測技術，實現自走車的即時環境感知與自主路徑追蹤。</p>
+        <div class="proj-tags">
+          <span>Vision</span><span>AGV</span><span>Object Detection</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PROFESSOR ====== -->
+  <section class="professor" id="professor">
+    <div class="section-header reveal">
+      <div class="section-badge">👨‍🏫 Professor</div>
+      <h2 class="section-title">指導教授</h2>
+    </div>
+    <div class="prof-container reveal">
+      <div class="prof-card">
+        <div class="prof-avatar">
+          <!-- 替換為實際照片：<img src="images/professor.jpg" alt="練光祐教授"> -->
+          <span>👨‍🏫</span>
+        </div>
+        <div class="prof-info">
+          <h3>練光祐 教授</h3>
+          <p class="prof-name-en">Kuang-Yow Lian</p>
+          <p class="prof-title">特聘教授 · 電機工程系</p>
+          <div class="prof-details">
+            <div class="prof-detail-item">
+              <span class="pdi-icon">🏫</span>
+              <span>電資學院 · 電機工程系</span>
+            </div>
+            <div class="prof-detail-item">
+              <span class="pdi-icon">📍</span>
+              <span>綜合科館 503 室</span>
+            </div>
+            <div class="prof-detail-item">
+              <span class="pdi-icon">📞</span>
+              <span>02-2771-2171 #2171</span>
+            </div>
+            <div class="prof-detail-item">
+              <span class="pdi-icon">✉️</span>
+              <a href="mailto:kylian@ntut.edu.tw">kylian@ntut.edu.tw</a>
+            </div>
           </div>
-          <div class="prof-detail-item">
-            <span class="pdi-icon">📍</span>
-            <span>綜合科館 503 室</span>
+        </div>
+      </div>
+
+      <div class="prof-expertise">
+        <h4>🔬 研究專長</h4>
+        <div class="expertise-tags">
+          <span>音訊處理</span>
+          <span>AI</span>
+          <span>智慧家庭</span>
+          <span>IoT</span>
+          <span>生理信號量測與分析</span>
+          <span>嵌入式裝置</span>
+          <span>智慧型控制</span>
+        </div>
+      </div>
+
+      <div class="prof-service">
+        <h4>🏅 重要學術服務</h4>
+        <div class="service-list">
+          <div class="service-item">
+            <span class="si-dot cyan"></span>
+            <span>IEEE 控制系統學會台北分會 — 主席（2015~）</span>
           </div>
-          <div class="prof-detail-item">
-            <span class="pdi-icon">📞</span>
-            <span>02-2771-2171 #2171</span>
+          <div class="service-item">
+            <span class="si-dot purple"></span>
+            <span>國科會控制學門 — 複審委員</span>
           </div>
-          <div class="prof-detail-item">
-            <span class="pdi-icon">✉️</span>
-            <a href="mailto:kylian@ntut.edu.tw">kylian@ntut.edu.tw</a>
+          <div class="service-item">
+            <span class="si-dot orange"></span>
+            <span>Asia Journal of Control — Associate Editor（2008~）</span>
+          </div>
+          <div class="service-item">
+            <span class="si-dot pink"></span>
+            <span>中華民國自動控制學會 — 理事 / 秘書長</span>
+          </div>
+          <div class="service-item">
+            <span class="si-dot cyan"></span>
+            <span>中華民國系統學會 — 常務理事（2013~）</span>
+          </div>
+          <div class="service-item">
+            <span class="si-dot purple"></span>
+            <span>中華工程教育學會 IEET — 認證委員（2014~）</span>
+          </div>
+          <div class="service-item">
+            <span class="si-dot orange"></span>
+            <span>國立臺北科技大學電機系 — 系主任（2009~2012）</span>
+          </div>
+          <div class="service-item">
+            <span class="si-dot pink"></span>
+            <span>中原大學電機系 — 系主任（2004~2007）</span>
           </div>
         </div>
+        <button class="expand-btn" id="expandBtn" onclick="toggleServices()">
+          查看更多學術服務 ↓
+        </button>
+        <div class="service-extra" id="serviceExtra">
+          <div class="service-item"><span class="si-dot cyan"></span><span>國科會控制學門 控制理論研究規劃委員會召集人</span></div>
+          <div class="service-item"><span class="si-dot purple"></span><span>IEEE CIS 學會台北分會 — 副主席（2009~2011）</span>
+          </div>
+          <div class="service-item"><span class="si-dot orange"></span><span>國際工程與科技學會中華民國分會 (IET) — 理事（2014~）</span>
+          </div>
+          <div class="service-item"><span class="si-dot pink"></span><span>台灣機器人學會 — 監事（2008~2011）</span></div>
+          <div class="service-item"><span class="si-dot cyan"></span><span>財團法人國立成功大學工程科學文教基金會 — 董事（2012~）</span></div>
+          <div class="service-item"><span class="si-dot purple"></span><span>多次擔任全國微電腦應用系統設計製作競賽評審委員</span></div>
+          <div class="service-item"><span class="si-dot orange"></span><span>CACS 國際研討會、FUZZ-IEEE 等國際會議 Program
+              Committee</span></div>
+          <div class="service-item"><span class="si-dot pink"></span><span>多所大學系所 IEET 認證委員與評鑑委員</span></div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="prof-expertise">
-      <h4>🔬 研究專長</h4>
-      <div class="expertise-tags">
-        <span>音訊處理</span>
-        <span>AI</span>
-        <span>智慧家庭</span>
-        <span>IoT</span>
-        <span>生理信號量測與分析</span>
-        <span>嵌入式裝置</span>
-        <span>智慧型控制</span>
+  <!-- ====== TEAM ====== -->
+  <section class="team" id="team">
+    <div class="section-header reveal">
+      <div class="section-badge">👥 Our Team</div>
+      <h2 class="section-title">實驗室成員</h2>
+      <p class="section-desc">由練光祐教授帶領碩博士生組成的研究團隊</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal card-hover">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar phd">🎓</div>
+          <div class="avatar-ring"></div>
+        </div>
+        <h4>博士班研究生</h4>
+        <p class="role">Ph.D. Student</p>
+      </div>
+      <div class="team-card reveal card-hover">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar master">📚</div>
+          <div class="avatar-ring"></div>
+        </div>
+        <h4>碩士班研究生</h4>
+        <p class="role">Master's Student</p>
+      </div>
+      <div class="team-card reveal card-hover">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar undergrad">💡</div>
+          <div class="avatar-ring"></div>
+        </div>
+        <h4>專題生</h4>
+        <p class="role">Undergraduate Researcher</p>
       </div>
     </div>
+  </section>
 
-    <div class="prof-service">
-      <h4>🏅 重要學術服務</h4>
-      <div class="service-list">
-        <div class="service-item">
-          <span class="si-dot cyan"></span>
-          <span>IEEE 控制系統學會台北分會 — 主席（2015~）</span>
+  <!-- ====== AWARDS ====== -->
+  <section class="awards" id="awards">
+    <div class="section-header reveal">
+      <div class="section-badge">🏆 Achievements</div>
+      <h2 class="section-title">榮譽與獲獎</h2>
+      <p class="section-desc">實驗室歷年來的重要獲獎與成就</p>
+    </div>
+    <div class="awards-list">
+      <div class="award-item reveal card-hover">
+        <div class="award-icon gold">🥇</div>
+        <div class="award-body">
+          <h4>全國智慧機器人競賽 — 冠軍</h4>
+          <p>自走車組別 · 教育部主辦</p>
         </div>
-        <div class="service-item">
-          <span class="si-dot purple"></span>
-          <span>國科會控制學門 — 複審委員</span>
-        </div>
-        <div class="service-item">
-          <span class="si-dot orange"></span>
-          <span>Asia Journal of Control — Associate Editor（2008~）</span>
-        </div>
-        <div class="service-item">
-          <span class="si-dot pink"></span>
-          <span>中華民國自動控制學會 — 理事 / 秘書長</span>
-        </div>
-        <div class="service-item">
-          <span class="si-dot cyan"></span>
-          <span>中華民國系統學會 — 常務理事（2013~）</span>
-        </div>
-        <div class="service-item">
-          <span class="si-dot purple"></span>
-          <span>中華工程教育學會 IEET — 認證委員（2014~）</span>
-        </div>
-        <div class="service-item">
-          <span class="si-dot orange"></span>
-          <span>國立臺北科技大學電機系 — 系主任（2009~2012）</span>
-        </div>
-        <div class="service-item">
-          <span class="si-dot pink"></span>
-          <span>中原大學電機系 — 系主任（2004~2007）</span>
-        </div>
+        <div class="award-year-badge">2025</div>
       </div>
-      <button class="expand-btn" id="expandBtn" onclick="toggleServices()">
-        查看更多學術服務 ↓
-      </button>
-      <div class="service-extra" id="serviceExtra">
-        <div class="service-item"><span class="si-dot cyan"></span><span>國科會控制學門 控制理論研究規劃委員會召集人</span></div>
-        <div class="service-item"><span class="si-dot purple"></span><span>IEEE CIS 學會台北分會 — 副主席（2009~2011）</span></div>
-        <div class="service-item"><span class="si-dot orange"></span><span>國際工程與科技學會中華民國分會 (IET) — 理事（2014~）</span></div>
-        <div class="service-item"><span class="si-dot pink"></span><span>台灣機器人學會 — 監事（2008~2011）</span></div>
-        <div class="service-item"><span class="si-dot cyan"></span><span>財團法人國立成功大學工程科學文教基金會 — 董事（2012~）</span></div>
-        <div class="service-item"><span class="si-dot purple"></span><span>多次擔任全國微電腦應用系統設計製作競賽評審委員</span></div>
-        <div class="service-item"><span class="si-dot orange"></span><span>CACS 國際研討會、FUZZ-IEEE 等國際會議 Program Committee</span></div>
-        <div class="service-item"><span class="si-dot pink"></span><span>多所大學系所 IEET 認證委員與評鑑委員</span></div>
+      <div class="award-item reveal card-hover">
+        <div class="award-icon silver">🥈</div>
+        <div class="award-body">
+          <h4>國際無人機創新應用競賽 — 銀獎</h4>
+          <p>自主飛行組別 · IEEE 協辦</p>
+        </div>
+        <div class="award-year-badge">2024</div>
+      </div>
+      <div class="award-item reveal card-hover">
+        <div class="award-icon star">⭐</div>
+        <div class="award-body">
+          <h4>科技部大專生研究計畫 — 優等</h4>
+          <p>控制工程領域</p>
+        </div>
+        <div class="award-year-badge">2024</div>
+      </div>
+      <div class="award-item reveal card-hover">
+        <div class="award-icon medal">🎖️</div>
+        <div class="award-body">
+          <h4>TDK 盃機器人競賽 — 佳作</h4>
+          <p>自動化控制組</p>
+        </div>
+        <div class="award-year-badge">2023</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ====== TEAM ====== -->
-<section class="team" id="team">
-  <div class="section-header reveal">
-    <div class="section-badge">👥 Our Team</div>
-    <h2 class="section-title">實驗室成員</h2>
-    <p class="section-desc">由練光祐教授帶領碩博士生組成的研究團隊</p>
-  </div>
-  <div class="team-grid">
-    <div class="team-card reveal card-hover">
-      <div class="team-avatar-wrap">
-        <div class="team-avatar phd">🎓</div>
-        <div class="avatar-ring"></div>
+  <!-- ====== FOOTER ====== -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div class="footer-brand-area">
+        <div class="footer-logo-box"><span>⚙️</span></div>
+        <div>
+          <div class="footer-brand">KY Lab · 系統分析與控制實驗室</div>
+          <p>國立臺北科技大學 · 電機工程系</p>
+        </div>
       </div>
-      <h4>博士班研究生</h4>
-      <p class="role">Ph.D. Student</p>
-    </div>
-    <div class="team-card reveal card-hover">
-      <div class="team-avatar-wrap">
-        <div class="team-avatar master">📚</div>
-        <div class="avatar-ring"></div>
+      <div class="footer-info">
+        <div class="footer-item">
+          <span class="fi-icon">📍</span>
+          <span>106 台北市大安區忠孝東路三段1號 綜合科館 503 室</span>
+        </div>
+        <div class="footer-item">
+          <span class="fi-icon">✉️</span>
+          <a href="mailto:kylian@ntut.edu.tw">kylian@ntut.edu.tw</a>
+        </div>
+        <div class="footer-item">
+          <span class="fi-icon">📞</span>
+          <span>02-2771-2171 #2171</span>
+        </div>
       </div>
-      <h4>碩士班研究生</h4>
-      <p class="role">Master's Student</p>
     </div>
-    <div class="team-card reveal card-hover">
-      <div class="team-avatar-wrap">
-        <div class="team-avatar undergrad">💡</div>
-        <div class="avatar-ring"></div>
-      </div>
-      <h4>專題生</h4>
-      <p class="role">Undergraduate Researcher</p>
+    <div class="footer-bottom">
+      <p>Made with 💛 by KY Lab © 2025 · National Taipei University of Technology</p>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ====== AWARDS ====== -->
-<section class="awards" id="awards">
-  <div class="section-header reveal">
-    <div class="section-badge">🏆 Achievements</div>
-    <h2 class="section-title">榮譽與獲獎</h2>
-    <p class="section-desc">實驗室歷年來的重要獲獎與成就</p>
-  </div>
-  <div class="awards-list">
-    <div class="award-item reveal card-hover">
-      <div class="award-icon gold">🥇</div>
-      <div class="award-body">
-        <h4>全國智慧機器人競賽 — 冠軍</h4>
-        <p>自走車組別 · 教育部主辦</p>
-      </div>
-      <div class="award-year-badge">2025</div>
-    </div>
-    <div class="award-item reveal card-hover">
-      <div class="award-icon silver">🥈</div>
-      <div class="award-body">
-        <h4>國際無人機創新應用競賽 — 銀獎</h4>
-        <p>自主飛行組別 · IEEE 協辦</p>
-      </div>
-      <div class="award-year-badge">2024</div>
-    </div>
-    <div class="award-item reveal card-hover">
-      <div class="award-icon star">⭐</div>
-      <div class="award-body">
-        <h4>科技部大專生研究計畫 — 優等</h4>
-        <p>控制工程領域</p>
-      </div>
-      <div class="award-year-badge">2024</div>
-    </div>
-    <div class="award-item reveal card-hover">
-      <div class="award-icon medal">🎖️</div>
-      <div class="award-body">
-        <h4>TDK 盃機器人競賽 — 佳作</h4>
-        <p>自動化控制組</p>
-      </div>
-      <div class="award-year-badge">2023</div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== FOOTER ====== -->
-<footer id="contact">
-  <div class="footer-top">
-    <div class="footer-brand-area">
-      <div class="footer-logo-box"><span>⚙️</span></div>
-      <div>
-        <div class="footer-brand">SAC Lab · 系統分析與控制實驗室</div>
-        <p>國立臺北科技大學 · 電機工程系</p>
-      </div>
-    </div>
-    <div class="footer-info">
-      <div class="footer-item">
-        <span class="fi-icon">📍</span>
-        <span>106 台北市大安區忠孝東路三段1號 綜合科館 503 室</span>
-      </div>
-      <div class="footer-item">
-        <span class="fi-icon">✉️</span>
-        <a href="mailto:kylian@ntut.edu.tw">kylian@ntut.edu.tw</a>
-      </div>
-      <div class="footer-item">
-        <span class="fi-icon">📞</span>
-        <span>02-2771-2171 #2171</span>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>Made with 💛 by SAC Lab © 2025 · National Taipei University of Technology</p>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
