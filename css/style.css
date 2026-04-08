@@ -84,7 +84,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 加入背景色與文字顏色的平滑過渡，讓切換主題時不會太生硬 */
+/* 平滑過渡 */
 body,
 nav,
 .research-card,
@@ -107,6 +107,18 @@ body {
   overflow-x: hidden;
 }
 
+/* ====== CUSTOM CURSOR HIDING (僅限桌機) ====== */
+@media (min-width: 769px) {
+
+  body,
+  a,
+  button,
+  .theme-toggle,
+  .nav-links a {
+    cursor: none !important;
+  }
+}
+
 /* ====== THEME TOGGLE BUTTON ====== */
 .theme-toggle {
   position: fixed;
@@ -119,7 +131,6 @@ body {
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-hover);
   font-size: 26px;
-  cursor: pointer;
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -162,8 +173,34 @@ body {
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: 9998;
+  /* 在無人機下方 */
   transition: background 0.3s ease;
+  display: none;
+}
+
+/* ====== DRONE CURSOR ====== */
+.drone-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 45px;
+  /* 無人機大小 */
+  height: 45px;
+  pointer-events: none;
+  /* 確保滑鼠點擊可以穿透圖案點到下方的按鈕 */
+  z-index: 10000;
+  display: none;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  /* 加上陰影更有立體感 */
+}
+
+@media (min-width: 769px) {
+
+  .cursor-glow,
+  .drone-cursor {
+    display: block;
+  }
 }
 
 /* ====== NAV ====== */
@@ -485,7 +522,6 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
   color: var(--text-light);
   font-weight: 700;
   font-size: 0.8rem;
