@@ -108,17 +108,17 @@ document.querySelectorAll('.card-icon-wrap, .proj-emoji, .award-icon, .team-avat
 });
 
 
-// ── 7. 教授學術服務展開/收合 ──
+// ── 7. 教授學經歷展開/收合 (已更新文字) ──
 function toggleServices() {
   const extra = document.getElementById('serviceExtra');
   const btn = document.getElementById('expandBtn');
   if (extra && btn) {
     if (extra.style.display === 'none' || extra.style.display === '') {
       extra.style.display = 'grid';
-      btn.innerText = '收起學術服務 ↑';
+      btn.innerText = '收起學經歷 ↑';
     } else {
       extra.style.display = 'none';
-      btn.innerText = '查看更多學術服務 ↓';
+      btn.innerText = '查看更多學經歷 ↓';
     }
   }
 }
