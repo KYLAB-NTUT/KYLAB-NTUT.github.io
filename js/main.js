@@ -1,6 +1,57 @@
 /* ======================================================
-   SAC Lab — Main Script (無人機跟隨游標系統版)
+   SAC Lab — Main Script
    ====================================================== */
+
+// ── LAB PHOTOS CONFIG ──
+// Add photo paths here to show floating cards on the Home page.
+// Photos should be placed in the images/lab/ folder.
+// Leave empty to show no floating cards.
+const labPhotos = [
+  // 'images/lab/photo1.jpg',
+  // 'images/lab/photo2.jpg',
+  // 'images/lab/photo3.jpg',
+  // 'images/lab/photo4.jpg',
+];
+
+// ── FLOATING LAB PHOTOS (Home page only) ──
+function initFloatingPhotos() {
+  if (labPhotos.length === 0) return;
+  const heroDeco = document.querySelector('.hero-deco');
+  if (!heroDeco) return;
+
+  const positions = [
+    { top: '12%', left: '4%', animationDuration: '9s', animationDelay: '0s', rotation: -6 },
+    { top: '12%', right: '4%', animationDuration: '11s', animationDelay: '1.5s', rotation: 5 },
+    { top: '48%', left: '2%', animationDuration: '10s', animationDelay: '3s', rotation: -4 },
+    { top: '48%', right: '2%', animationDuration: '12s', animationDelay: '0.8s', rotation: 7 },
+    { bottom: '18%', left: '5%', animationDuration: '8s', animationDelay: '2s', rotation: -7 },
+    { bottom: '18%', right: '5%', animationDuration: '13s', animationDelay: '4s', rotation: 4 },
+  ];
+
+  const photos = labPhotos.slice(0, 6);
+  photos.forEach(function (src, i) {
+    const pos = positions[i];
+    const card = document.createElement('div');
+    card.className = 'lab-photo-float';
+    card.style.animationDuration = pos.animationDuration;
+    card.style.animationDelay = pos.animationDelay;
+    card.style.transform = 'rotate(' + pos.rotation + 'deg)';
+
+    // Apply positional styles
+    ['top', 'right', 'bottom', 'left'].forEach(function (side) {
+      if (pos[side] !== undefined) card.style[side] = pos[side];
+    });
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = '實驗室照片';
+    card.appendChild(img);
+    heroDeco.appendChild(card);
+  });
+}
+
+initFloatingPhotos();
+
 
 // ── 1. Scroll Reveal (滑動顯示動畫) ──
 const observer = new IntersectionObserver((entries) => {
@@ -16,7 +67,6 @@ document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
 
-// 網頁載入時強制觸發一次
 window.addEventListener('load', () => {
   document.querySelectorAll('.reveal').forEach(el => {
     const rect = el.getBoundingClientRect();
@@ -30,10 +80,10 @@ window.addEventListener('load', () => {
 // ── 2. Navbar 滾動陰影變化 ──
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.style.boxShadow = "var(--shadow-hover)";
-  } else {
-    navbar.style.boxShadow = "var(--shadow-soft)";
+  if (navbar) {
+    navbar.style.boxShadow = window.scrollY > 50
+      ? 'var(--shadow-hover)'
+      : 'var(--shadow-soft)';
   }
 });
 
@@ -67,80 +117,44 @@ if (toggle && navLinks) {
 }
 
 
-// ── 4. Active nav link (導覽列隨滾動變色) ──
-const sections = document.querySelectorAll('section[id]');
-const navItems = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 150) current = s.id;
-  });
-  navItems.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-  });
-});
-
-
-// ── 5. 游標光暈 & 無人機游標 (物理傾斜效果) ──
+// ── 4. 游標光暈 & 無人機游標 (物理傾斜效果) ──
 const glow = document.getElementById('cursorGlow');
 const drone = document.getElementById('droneCursor');
 
-// 初始化座標
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 let droneX = window.innerWidth / 2;
 let droneY = window.innerHeight / 2;
 
 if (window.innerWidth > 768) {
-  // 記錄滑鼠真實位置
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-
-    // 光暈直接跟隨
     if (glow) {
       glow.style.left = mouseX + 'px';
       glow.style.top = mouseY + 'px';
     }
   });
 
-  // 無人機物理動畫迴圈
   function animateDrone() {
-    // 計算距離差距
     const dx = mouseX - droneX;
     const dy = mouseY - droneY;
-
-    // 加上一點彈性延遲，模擬無人機飛行的慣性
     droneX += dx * 0.18;
     droneY += dy * 0.18;
-
-    // 根據 X 軸移動速度產生傾斜 (飛機轉彎會傾斜)
-    // dx 即代表瞬間的 X 軸速度差
-    let tilt = dx * 0.6;
-    const maxTilt = 35; // 限制最大傾斜角度為 35 度
-
-    // 確保傾斜角度在合理範圍內
-    tilt = Math.max(Math.min(tilt, maxTilt), -maxTilt);
-
+    let tilt = Math.max(Math.min(dx * 0.6, 35), -35);
     if (drone) {
-      // 應用位移與旋轉 (注意: translateX/Y 會與 translate(-50%,-50%) 組合使用來保持置中)
       drone.style.transform = `translate(${droneX}px, ${droneY}px) translate(-50%, -50%) rotate(${tilt}deg)`;
     }
-
     requestAnimationFrame(animateDrone);
   }
-
-  // 啟動無人機動畫
   animateDrone();
 }
 
 
-// ── 6. 點擊 emoji 彈跳 (可愛互動) ──
+// ── 5. 點擊 emoji 彈跳 (可愛互動) ──
 document.querySelectorAll('.card-icon-wrap, .proj-emoji, .award-icon, .team-avatar, .nav-logo-box, .prof-avatar').forEach(el => {
   el.style.cursor = 'pointer';
   el.addEventListener('click', () => {
-    el.style.animation = 'none';
-    el.offsetHeight;
     el.animate([
       { transform: 'scale(1)' },
       { transform: 'scale(1.2) rotate(5deg)' },
@@ -152,7 +166,7 @@ document.querySelectorAll('.card-icon-wrap, .proj-emoji, .award-icon, .team-avat
 });
 
 
-// ── 7. 教授學經歷展開/收合 ──
+// ── 6. 教授學經歷展開/收合 ──
 function toggleServices() {
   const extra = document.getElementById('serviceExtra');
   const btn = document.getElementById('expandBtn');
@@ -168,7 +182,7 @@ function toggleServices() {
 }
 
 
-// ── 8. 深淺色主題切換 (Dark/Light Mode) ──
+// ── 7. 深淺色主題切換 (Dark/Light Mode) ──
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
@@ -181,11 +195,9 @@ if (savedTheme === 'dark') {
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-theme');
-
     themeToggle.style.animation = 'none';
     themeToggle.offsetHeight;
     themeToggle.style.animation = 'jelly 0.5s';
-
     if (body.classList.contains('dark-theme')) {
       themeToggle.innerText = '☀️';
       localStorage.setItem('saclab-theme', 'dark');
