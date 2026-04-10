@@ -1208,3 +1208,172 @@ html.dark-theme .lab-photo-float {
 .page-section {
   padding-top: 130px;
 }
+
+/* ======================================================
+   彩蛋 Easter Egg — Melvin
+   ====================================================== */
+
+/* ── Matrix 全螢幕覆蓋層 ── */
+.egg-matrix-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+}
+.egg-matrix-overlay.visible { opacity: 1; }
+.egg-matrix-overlay.fading { opacity: 0; }
+
+.egg-matrix-cols {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  pointer-events: none;
+}
+
+.egg-matrix-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  animation: eggMatrixFall linear infinite;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+@keyframes eggMatrixFall {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.egg-matrix-char       { color: #2DD4BF; opacity: 0.75; }
+.egg-matrix-char.bright { color: #ffffff; opacity: 1; }
+
+.egg-access-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2DD4BF;
+  text-shadow: 0 0 15px #2DD4BF, 0 0 30px #2DD4BF;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #2DD4BF;
+  border-radius: 6px;
+  padding: 18px 32px;
+  white-space: nowrap;
+  animation: eggGlitch 0.35s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.egg-access-sub {
+  display: block;
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 6px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+@keyframes eggGlitch {
+  0%, 93%  { transform: translate(-50%, -50%); }
+  94%      { transform: translate(calc(-50% - 3px), calc(-50% + 1px)); }
+  95%      { transform: translate(calc(-50% + 3px), calc(-50% - 2px)); }
+  96%      { transform: translate(calc(-50% - 1px), calc(-50% + 2px)); }
+  97%      { transform: translate(calc(-50% + 1px), -50%); }
+  100%     { transform: translate(-50%, -50%); }
+}
+
+/* ── 彩帶粒子 ── */
+.egg-confetti {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  border-radius: 2px;
+  animation: eggConfettiFall linear forwards;
+}
+
+@keyframes eggConfettiFall {
+  0%   { opacity: 1; transform: translateY(0) translateX(0) rotate(0deg); }
+  80%  { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translateY(var(--fall-y)) translateX(var(--fall-x)) rotate(var(--fall-rot));
+  }
+}
+
+/* ── 成就通知 ── */
+.egg-achievement {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9998;
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(167, 139, 250, 0.5);
+  border-radius: 14px;
+  padding: 14px 18px;
+  min-width: 240px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(167, 139, 250, 0.2);
+  animation: eggAchievementIn 0.4s ease-out forwards;
+}
+
+.egg-achievement.hiding {
+  animation: eggAchievementOut 0.5s ease-in forwards;
+}
+
+@keyframes eggAchievementIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes eggAchievementOut {
+  from { transform: translateY(0);   opacity: 1; }
+  to   { transform: translateY(10px); opacity: 0; }
+}
+
+.egg-achievement-header {
+  font-size: 11px;
+  color: #A78BFA;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.egg-achievement-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.egg-achievement-icon { font-size: 26px; flex-shrink: 0; }
+
+.egg-achievement-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.4;
+}
+
+.egg-achievement-bar {
+  height: 2px;
+  background: linear-gradient(90deg, #A78BFA, #2DD4BF);
+  border-radius: 2px;
+  margin-top: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: eggBarFill 1s ease-out 0.3s forwards;
+}
+
+@keyframes eggBarFill {
+  to { transform: scaleX(1); }
+}
