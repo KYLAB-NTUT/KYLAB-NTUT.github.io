@@ -206,3 +206,89 @@ if (themeToggle) {
     }
   });
 }
+
+
+// ── 8. Melvin 彩蛋 ──
+(function initMelvinEasterEgg() {
+  var wrap = document.getElementById('melvin-avatar-wrap');
+  if (!wrap) return;
+
+  var clickCount = 0;
+  var resetTimer = null;
+  var isPlaying = false;
+
+  wrap.addEventListener('click', function () {
+    if (isPlaying) return;
+
+    clickCount++;
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(function () { clickCount = 0; }, 3000);
+
+    if (clickCount >= 10) {
+      clickCount = 0;
+      clearTimeout(resetTimer);
+      triggerEasterEgg();
+    }
+  });
+
+  function triggerEasterEgg() {
+    isPlaying = true;
+    var overlay = createMatrixOverlay();
+
+    setTimeout(function () {
+      overlay.classList.add('fading');
+      var rect = wrap.getBoundingClientRect();
+      createConfetti(rect);
+      setTimeout(function () { overlay.remove(); }, 300);
+    }, 2500);
+
+    setTimeout(function () {
+      showAchievementToast();
+      isPlaying = false;
+    }, 3000);
+  }
+
+  function createMatrixOverlay() {
+    var overlay = document.createElement('div');
+    overlay.className = 'egg-matrix-overlay';
+
+    var colsWrap = document.createElement('div');
+    colsWrap.className = 'egg-matrix-cols';
+
+    var charArr = 'アウエソクテルケスMLVIN019!KY'.split('');
+    var colCount = Math.floor(window.innerWidth / 22);
+    var rowCount = Math.ceil(window.innerHeight / 20) + 5;
+
+    for (var c = 0; c < colCount; c++) {
+      var col = document.createElement('div');
+      col.className = 'egg-matrix-col';
+      col.style.animationDuration = (1.4 + Math.random() * 1.6) + 's';
+      col.style.animationDelay = (Math.random() * 0.8) + 's';
+
+      for (var r = 0; r < rowCount; r++) {
+        var span = document.createElement('span');
+        span.className = 'egg-matrix-char' + (Math.random() < 0.12 ? ' bright' : '');
+        span.textContent = charArr[Math.floor(Math.random() * charArr.length)];
+        col.appendChild(span);
+      }
+      colsWrap.appendChild(col);
+    }
+
+    var accessText = document.createElement('div');
+    accessText.className = 'egg-access-text';
+    accessText.innerHTML = 'ACCESS GRANTED<span class="egg-access-sub">melvin0kuo &middot; KY LAB</span>';
+
+    overlay.appendChild(colsWrap);
+    overlay.appendChild(accessText);
+    document.body.appendChild(overlay);
+
+    overlay.getBoundingClientRect();
+    overlay.classList.add('visible');
+
+    return overlay;
+  }
+
+  function createConfetti(rect) { /* Task 5 */ }
+
+  function showAchievementToast() { /* Task 6 */ }
+})();
