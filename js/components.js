@@ -29,6 +29,7 @@
         <li><a href="professor.html"${active('professor.html')}>Professor</a></li>
         <li><a href="members.html"${active('members.html')}>Members</a></li>
         <li><a href="awards.html"${active('awards.html')}>Awards</a></li>
+        <li><a href="gallery.html"${active('gallery.html')}>Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="nav-toggle" aria-label="選單">
