@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 語音辨識與互動系統 | KY Lab · 研究專案</title>
+  <meta name="description" content="KY Lab 語音音訊研究：深度學習語音辨識、語者識別、智慧家庭聲控互動系統。">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🤖</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{if(localStorage.getItem('saclab-theme')==='dark')document.documentElement.classList.add('dark-theme');}catch(e){}</script>
+</head>
+
+<body>
+
+  <section class="project-detail page-section" id="project-detail">
+
+    <!-- 返回按鈕 -->
+    <div class="pd-back reveal">
+      <a href="projects.html" class="btn btn-soft">← 返回研究專案</a>
+    </div>
+
+    <!-- 專案 Hero -->
+    <div class="pd-hero reveal">
+      <div class="pd-hero-deco orange"></div>
+      <div class="pd-icon-wrap orange">
+        <span>🎙️</span>
+      </div>
+      <div class="pd-num">Project · 02</div>
+      <h1 class="pd-title">AI 語音辨識與互動系統</h1>
+      <p class="pd-desc">
+        運用深度學習與音訊處理技術，研究高精度語音辨識、語者識別與聲紋驗證，並將其應用於智慧家庭與 IoT 設備的免持語音控制互動介面。
+      </p>
+      <div class="pd-tags">
+        <span>AI</span>
+        <span>Speech Recognition</span>
+        <span>Deep Learning</span>
+        <span>NLP</span>
+        <span>Smart Home</span>
+        <span>IoT</span>
+      </div>
+    </div>
+
+    <!-- 研究概覽 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🔍 研究概覽</h2>
+      <div class="pd-overview-grid">
+        <div class="pd-overview-text">
+          <p>
+            本研究聚焦於語音音訊的深度學習應用，涵蓋自動語音辨識（ASR）、語者識別（Speaker Recognition）、語音增強（Speech Enhancement）及語音喚醒（Wake Word Detection）等核心技術。
+          </p>
+          <p>
+            在特徵擷取方面，研究採用 MFCC、Mel Spectrogram 等音訊特徵，並結合 CNN、RNN、Transformer 等神經網路架構，達成高噪音環境下的強健語音辨識能力。
+          </p>
+          <p>
+            研究最終目標是將語音互動模組整合至智慧家庭場景，實現自然語言控制家電、生活輔助及語音身分驗證等應用，打造更直覺友善的人機互動體驗。
+          </p>
+        </div>
+        <div class="pd-highlights">
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🎯</span>
+            <div class="pd-hi-text">
+              <h4>高辨識準確率</h4>
+              <p>噪音環境下中文語音辨識 WER &lt; 8%</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🏠</span>
+            <div class="pd-hi-text">
+              <h4>智慧家庭整合</h4>
+              <p>與 Home Assistant / MQTT 無縫對接</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🔐</span>
+            <div class="pd-hi-text">
+              <h4>語者識別驗證</h4>
+              <p>聲紋識別 EER &lt; 3%，支援多語者區分</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">⚡</span>
+            <div class="pd-hi-text">
+              <h4>低延遲推理</h4>
+              <p>端側推理延遲 &lt; 200 ms，可嵌入式部署</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究主題 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">📌 研究主題</h2>
+      <div class="pd-topics-grid">
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🎤</div>
+          <h3>自動語音辨識 (ASR)</h3>
+          <p>基於端到端深度學習模型（CTC / Attention），針對中文連續語音進行高準確度的語音轉文字。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">👤</div>
+          <h3>語者識別與驗證</h3>
+          <p>利用聲紋特徵嵌入（d-vector / x-vector）技術，實現語者身分識別與聲紋驗證。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🔊</div>
+          <h3>語音增強與去噪</h3>
+          <p>運用深度神經網路（DNN / CRN）對家庭噪音環境下的語音信號進行去噪與增強處理。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">💬</div>
+          <h3>自然語言理解 (NLU)</h3>
+          <p>結合意圖識別（Intent Detection）與命名實體辨識（NER），解析用戶語音指令並執行相應動作。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🔔</div>
+          <h3>語音喚醒偵測</h3>
+          <p>設計低功耗的關鍵詞喚醒（KWS）模型，部署於 MCU 端實現隨時待命的語音觸發。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🏡</div>
+          <h3>智慧家庭語音控制</h3>
+          <p>整合語音辨識與 IoT 控制平台，打造語音操控燈光、家電、門鎖的完整互動系統。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究目標 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🎯 研究目標</h2>
+      <div class="pd-goal-list">
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">01</div>
+          <div class="pd-goal-content">
+            <h4>強健噪音語音辨識</h4>
+            <p>在真實家庭噪音環境下，維持穩定的中文語音辨識精度，降低誤觸發率。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">02</div>
+          <div class="pd-goal-content">
+            <h4>個人化聲紋建模</h4>
+            <p>建立使用者聲紋模型，支援個人化語音指令及多用戶權限控管。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">03</div>
+          <div class="pd-goal-content">
+            <h4>輕量化端側部署</h4>
+            <p>透過模型量化與剪枝，將語音模型壓縮後部署至 Raspberry Pi 等低功耗設備。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">04</div>
+          <div class="pd-goal-content">
+            <h4>全雙工對話互動</h4>
+            <p>實現連續語音對話功能，結合 TTS（語音合成）打造自然的雙向人機溝通體驗。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 使用技術 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🛠️ 使用技術與工具</h2>
+      <div class="pd-tech-grid">
+        <span class="pd-tech-tag">Python</span>
+        <span class="pd-tech-tag">PyTorch</span>
+        <span class="pd-tech-tag">TensorFlow</span>
+        <span class="pd-tech-tag">Whisper (OpenAI)</span>
+        <span class="pd-tech-tag">SpeechBrain</span>
+        <span class="pd-tech-tag">Kaldi</span>
+        <span class="pd-tech-tag">MFCC / Mel Spectrogram</span>
+        <span class="pd-tech-tag">Transformer / Conformer</span>
+        <span class="pd-tech-tag">CTC / Attention Decoder</span>
+        <span class="pd-tech-tag">ONNX Runtime</span>
+        <span class="pd-tech-tag">Raspberry Pi</span>
+        <span class="pd-tech-tag">MQTT</span>
+        <span class="pd-tech-tag">Home Assistant</span>
+        <span class="pd-tech-tag">TTS (Text-to-Speech)</span>
+        <span class="pd-tech-tag">librosa</span>
+        <span class="pd-tech-tag">Noise Augmentation</span>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

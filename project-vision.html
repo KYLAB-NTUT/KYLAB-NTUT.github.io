@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電腦視覺與即時感知系統 | KY Lab · 研究專案</title>
+  <meta name="description" content="KY Lab 電腦視覺研究：物件偵測、影像分割、即時追蹤、深度學習影像辨識應用。">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🤖</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{if(localStorage.getItem('saclab-theme')==='dark')document.documentElement.classList.add('dark-theme');}catch(e){}</script>
+</head>
+
+<body>
+
+  <section class="project-detail page-section" id="project-detail">
+
+    <!-- 返回按鈕 -->
+    <div class="pd-back reveal">
+      <a href="projects.html" class="btn btn-soft">← 返回研究專案</a>
+    </div>
+
+    <!-- 專案 Hero -->
+    <div class="pd-hero reveal">
+      <div class="pd-hero-deco pink"></div>
+      <div class="pd-icon-wrap pink">
+        <span>📷</span>
+      </div>
+      <div class="pd-num">Project · 03</div>
+      <h1 class="pd-title">電腦視覺與即時感知系統</h1>
+      <p class="pd-desc">
+        利用電腦視覺與深度學習技術，實現物件偵測、影像分割、目標追蹤與場景語意理解，為自走車、無人機及智慧監控系統提供即時視覺感知能力。
+      </p>
+      <div class="pd-tags">
+        <span>Computer Vision</span>
+        <span>Object Detection</span>
+        <span>Deep Learning</span>
+        <span>YOLO</span>
+        <span>Semantic Segmentation</span>
+        <span>Real-time</span>
+      </div>
+    </div>
+
+    <!-- 研究概覽 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🔍 研究概覽</h2>
+      <div class="pd-overview-grid">
+        <div class="pd-overview-text">
+          <p>
+            本研究專注於電腦視覺技術的開發與應用，涵蓋物件偵測（Object Detection）、語意分割（Semantic Segmentation）、實例分割（Instance Segmentation）及多目標追蹤（MOT）等核心課題。
+          </p>
+          <p>
+            研究採用 YOLO 系列、EfficientDet、Mask R-CNN 等前沿模型架構，在準確率與推理速度之間取得最佳平衡，使系統能夠在嵌入式平台上達到即時處理需求。
+          </p>
+          <p>
+            視覺感知結果被整合至無人機飛控系統與自走車導航模組，輔助載具進行環境理解、目標跟蹤與危險區域偵測，實現真正意義上的端到端自主感知決策。
+          </p>
+        </div>
+        <div class="pd-highlights">
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">⚡</span>
+            <div class="pd-hi-text">
+              <h4>即時推理速度</h4>
+              <p>YOLO 模型在 GPU 上達 60+ FPS 即時偵測</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🎯</span>
+            <div class="pd-hi-text">
+              <h4>高精度偵測</h4>
+              <p>mAP@0.5 達 92% 以上（自訂資料集）</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">📱</span>
+            <div class="pd-hi-text">
+              <h4>輕量化部署</h4>
+              <p>模型量化後支援 Jetson Nano 邊緣推理</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🔄</span>
+            <div class="pd-hi-text">
+              <h4>跨模態感知</h4>
+              <p>RGB + 深度影像融合，提升 3D 場景理解</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究主題 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">📌 研究主題</h2>
+      <div class="pd-topics-grid">
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🔍</div>
+          <h3>物件偵測與辨識</h3>
+          <p>基於 YOLO、SSD、Faster R-CNN 等架構，對影像中的目標進行高效率的定位與類別辨識。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🎨</div>
+          <h3>語意與實例分割</h3>
+          <p>利用 DeepLab、Mask R-CNN 對場景進行像素級分類，輔助自走車理解可通行區域與障礙物邊界。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🏃</div>
+          <h3>多目標追蹤</h3>
+          <p>結合 DeepSORT、ByteTrack 演算法，在連續影像幀中穩定追蹤多個運動目標的軌跡。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">📐</div>
+          <h3>深度估測與 3D 感知</h3>
+          <p>使用單目深度估測（Monodepth）與立體視覺技術，從 2D 影像重建環境的 3D 空間結構。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🏷️</div>
+          <h3>資料標注與增強</h3>
+          <p>建立自動標注工具流程，並透過 Mosaic、Mixup、Albumentations 等技術進行資料增強。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🚁</div>
+          <h3>空拍影像分析</h3>
+          <p>針對無人機空拍影像進行特定場景分析，包含車輛計數、人群密度估測與地表覆蓋分類。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究目標 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🎯 研究目標</h2>
+      <div class="pd-goal-list">
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">01</div>
+          <div class="pd-goal-content">
+            <h4>建立高效能偵測管線</h4>
+            <p>優化推理速度與準確率的平衡，使模型在資源受限的嵌入式裝置上仍能即時運作。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">02</div>
+          <div class="pd-goal-content">
+            <h4>強化惡劣條件下的辨識</h4>
+            <p>研究低光源、模糊、遮蔽等條件下的影像增強與模型強健性訓練策略。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">03</div>
+          <div class="pd-goal-content">
+            <h4>整合視覺與導航系統</h4>
+            <p>將視覺感知輸出與 ROS 導航堆疊整合，使載具能基於視覺資訊進行自主決策。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">04</div>
+          <div class="pd-goal-content">
+            <h4>建立領域特化資料集</h4>
+            <p>蒐集並標注實驗室場景、室內環境等專屬資料集，提升模型在特定應用場景的效能。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 使用技術 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🛠️ 使用技術與工具</h2>
+      <div class="pd-tech-grid">
+        <span class="pd-tech-tag">Python</span>
+        <span class="pd-tech-tag">PyTorch</span>
+        <span class="pd-tech-tag">OpenCV</span>
+        <span class="pd-tech-tag">YOLOv8 / YOLOv11</span>
+        <span class="pd-tech-tag">Detectron2</span>
+        <span class="pd-tech-tag">Mask R-CNN</span>
+        <span class="pd-tech-tag">DeepSORT / ByteTrack</span>
+        <span class="pd-tech-tag">TensorRT</span>
+        <span class="pd-tech-tag">ONNX</span>
+        <span class="pd-tech-tag">Albumentations</span>
+        <span class="pd-tech-tag">Label Studio</span>
+        <span class="pd-tech-tag">NVIDIA Jetson</span>
+        <span class="pd-tech-tag">Intel RealSense D435</span>
+        <span class="pd-tech-tag">Roboflow</span>
+        <span class="pd-tech-tag">Weights & Biases</span>
+        <span class="pd-tech-tag">CUDA</span>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

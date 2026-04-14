@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冰水主機智慧節能控制系統 | KY Lab · 研究專案</title>
+  <meta name="description" content="KY Lab 節能優化研究：冰水主機 Chiller 節能控制、IoT 能源管理、最佳化演算法應用。">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🤖</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{if(localStorage.getItem('saclab-theme')==='dark')document.documentElement.classList.add('dark-theme');}catch(e){}</script>
+</head>
+
+<body>
+
+  <section class="project-detail page-section" id="project-detail">
+
+    <!-- 返回按鈕 -->
+    <div class="pd-back reveal">
+      <a href="projects.html" class="btn btn-soft">← 返回研究專案</a>
+    </div>
+
+    <!-- 專案 Hero -->
+    <div class="pd-hero reveal">
+      <div class="pd-hero-deco cyan"></div>
+      <div class="pd-icon-wrap cyan">
+        <span>⚡</span>
+      </div>
+      <div class="pd-num">Project · 04</div>
+      <h1 class="pd-title">冰水主機智慧節能控制系統</h1>
+      <p class="pd-desc">
+        博士班重點研究：結合 IoT 感測器網路與先進最佳化控制演算法，動態調節大型冰水主機（Chiller）群的運轉負載，達成工業建築的最佳化節能效益。
+      </p>
+      <div class="pd-tags">
+        <span>Chiller</span>
+        <span>Energy Optimization</span>
+        <span>IoT</span>
+        <span>Smart Control</span>
+        <span>HVAC</span>
+        <span>Industrial AI</span>
+      </div>
+    </div>
+
+    <!-- 研究概覽 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🔍 研究概覽</h2>
+      <div class="pd-overview-grid">
+        <div class="pd-overview-text">
+          <p>
+            冰水主機（Chiller）是大型商辦大樓與工業廠房中能耗最高的設備之一，其能耗通常佔整棟建築總用電量的 40~50%。本研究針對冷凍空調系統（HVAC）進行節能最佳化，透過智慧控制策略降低不必要的能源浪費。
+          </p>
+          <p>
+            研究核心在於建立冰水主機的精確數學模型，並結合 IoT 感測器即時蒐集環境溫溼度、冷凍水溫度、壓縮機運轉狀態等參數，透過最佳化演算法動態決策最節能的設定點組合。
+          </p>
+          <p>
+            在控制策略上，研究採用模型預測控制（MPC）、強化學習（RL）與進化演算法（GA / PSO）等技術，在滿足冷房需求的前提下，最小化系統整體能耗（COP 最大化），達到顯著的節能效果。
+          </p>
+        </div>
+        <div class="pd-highlights">
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">💡</span>
+            <div class="pd-hi-text">
+              <h4>顯著節能效果</h4>
+              <p>相較基準控制策略，節能率可達 15~30%</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">📊</span>
+            <div class="pd-hi-text">
+              <h4>即時能耗監控</h4>
+              <p>IoT 感測網路每 5 秒回傳一筆設備運轉數據</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🧠</span>
+            <div class="pd-hi-text">
+              <h4>自適應控制</h4>
+              <p>RL 控制器可根據負載變化自動調整最佳設定點</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🏭</span>
+            <div class="pd-hi-text">
+              <h4>工業現場驗證</h4>
+              <p>於實際大樓冷凍機房進行系統部署與驗證</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究主題 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">📌 研究主題</h2>
+      <div class="pd-topics-grid">
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🌡️</div>
+          <h3>冰水主機系統建模</h3>
+          <p>建立冷凍循環熱力學模型（Gordon-Ng Model），精確描述壓縮機、蒸發器與冷凝器的能耗特性。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🔧</div>
+          <h3>設定點最佳化控制</h3>
+          <p>動態調整冷凍水出水溫度（CHWS Temp）與冷卻水出水溫度（CWS Temp），尋找最低能耗設定組合。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🤖</div>
+          <h3>強化學習節能控制</h3>
+          <p>訓練 DQN / PPO 強化學習代理人，在模擬環境中學習節能策略後部署至實際冷凍機房。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">📡</div>
+          <h3>IoT 感測網路建置</h3>
+          <p>部署分散式感測節點，透過 MQTT / Modbus 協定蒐集設備運轉數據並傳至雲端分析平台。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">📈</div>
+          <h3>負載預測與前饋控制</h3>
+          <p>利用 LSTM / XGBoost 預測建築未來冷房負載，實現前饋式控制以進一步提升節能效率。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🔀</div>
+          <h3>多台冰水機組調度</h3>
+          <p>研究多台冰水主機的啟停順序與負載分配（Load Sequencing），達成機群整體最低能耗運轉。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究目標 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🎯 研究目標</h2>
+      <div class="pd-goal-list">
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">01</div>
+          <div class="pd-goal-content">
+            <h4>建立精確能耗預測模型</h4>
+            <p>開發高精度的冰水主機能耗模型，作為最佳化控制演算法的核心預測引擎。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">02</div>
+          <div class="pd-goal-content">
+            <h4>實現自適應最佳化控制</h4>
+            <p>設計能根據季節、氣候與建築使用模式自動調整的控制策略，全年維持最佳節能狀態。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">03</div>
+          <div class="pd-goal-content">
+            <h4>開發工業 IoT 平台</h4>
+            <p>建構從感測器資料蒐集、儲存、分析到視覺化的完整能源管理系統（EMS）平台。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">04</div>
+          <div class="pd-goal-content">
+            <h4>現場驗證與實際應用</h4>
+            <p>在實際工業場域進行長期節能實驗，驗證系統效益並推動技術落地應用。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 使用技術 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🛠️ 使用技術與工具</h2>
+      <div class="pd-tech-grid">
+        <span class="pd-tech-tag">Python</span>
+        <span class="pd-tech-tag">MATLAB / Simulink</span>
+        <span class="pd-tech-tag">PyTorch</span>
+        <span class="pd-tech-tag">Stable Baselines3</span>
+        <span class="pd-tech-tag">Gymnasium (OpenAI)</span>
+        <span class="pd-tech-tag">LSTM / GRU</span>
+        <span class="pd-tech-tag">XGBoost</span>
+        <span class="pd-tech-tag">Model Predictive Control</span>
+        <span class="pd-tech-tag">GA / PSO</span>
+        <span class="pd-tech-tag">MQTT</span>
+        <span class="pd-tech-tag">Modbus TCP/RTU</span>
+        <span class="pd-tech-tag">Node-RED</span>
+        <span class="pd-tech-tag">InfluxDB</span>
+        <span class="pd-tech-tag">Grafana</span>
+        <span class="pd-tech-tag">Raspberry Pi</span>
+        <span class="pd-tech-tag">Gordon-Ng Model</span>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無人載具自主導航與飛控系統 | KY Lab · 研究專案</title>
+  <meta name="description" content="KY Lab 無人機與自走車研究：自主導航、飛行控制、路徑規劃、ROS/PX4 嵌入式系統開發。">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🤖</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{if(localStorage.getItem('saclab-theme')==='dark')document.documentElement.classList.add('dark-theme');}catch(e){}</script>
+</head>
+
+<body>
+
+  <section class="project-detail page-section" id="project-detail">
+
+    <!-- 返回按鈕 -->
+    <div class="pd-back reveal">
+      <a href="projects.html" class="btn btn-soft">← 返回研究專案</a>
+    </div>
+
+    <!-- 專案 Hero -->
+    <div class="pd-hero reveal">
+      <div class="pd-hero-deco purple"></div>
+      <div class="pd-icon-wrap purple">
+        <span>🛸</span>
+      </div>
+      <div class="pd-num">Project · 01</div>
+      <h1 class="pd-title">無人載具自主導航與飛控系統</h1>
+      <p class="pd-desc">
+        開發基於 ROS / PX4 等嵌入式控制平台，整合多重感測器融合與避障演算法，實現無人機與自走車的自主移動功能，達成複雜環境下的精準導航與智慧決策。
+      </p>
+      <div class="pd-tags">
+        <span>Drone</span>
+        <span>AGV</span>
+        <span>Navigation</span>
+        <span>ROS</span>
+        <span>PX4</span>
+        <span>Embedded System</span>
+      </div>
+    </div>
+
+    <!-- 研究概覽 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🔍 研究概覽</h2>
+      <div class="pd-overview-grid">
+        <div class="pd-overview-text">
+          <p>
+            本研究專注於無人機（UAV）與自走車（AGV）的自主控制系統開發。透過整合 ROS（Robot Operating System）與 PX4 飛控韌體，建立一套高度模組化的控制架構，使載具能夠在動態環境下進行穩定飛行、精準定位與自主避障。
+          </p>
+          <p>
+            研究核心在於多重感測器融合技術，結合 IMU、GPS、光流感測器與深度相機，透過 EKF（Extended Kalman Filter）演算法對載具狀態進行即時估測，提升定位準確度與系統穩定性。
+          </p>
+          <p>
+            在路徑規劃方面，採用 A*、RRT* 等演算法於已知地圖環境進行全域規劃，並結合動態窗口法（DWA）實現局部避障，確保載具在複雜環境中安全抵達目標位置。
+          </p>
+        </div>
+        <div class="pd-highlights">
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🎯</span>
+            <div class="pd-hi-text">
+              <h4>精準定位</h4>
+              <p>EKF 多感測器融合，定位誤差 &lt; 10 cm</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🛡️</span>
+            <div class="pd-hi-text">
+              <h4>即時避障</h4>
+              <p>DWA 局部規劃器，20 Hz 即時響應</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">🔗</span>
+            <div class="pd-hi-text">
+              <h4>模組化架構</h4>
+              <p>ROS 節點設計，支援多載具協同任務</p>
+            </div>
+          </div>
+          <div class="pd-highlight-item">
+            <span class="pd-hi-icon">⚙️</span>
+            <div class="pd-hi-text">
+              <h4>嵌入式部署</h4>
+              <p>支援 Jetson Nano / Raspberry Pi 邊緣運算</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究主題 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">📌 研究主題</h2>
+      <div class="pd-topics-grid">
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">✈️</div>
+          <h3>飛行控制系統</h3>
+          <p>設計 PID / LQR 飛控演算法，實現四旋翼無人機的姿態穩定控制與精準懸停，並支援自動起降功能。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🗺️</div>
+          <h3>自主路徑規劃</h3>
+          <p>結合全域路徑規劃（A*、Dijkstra）與局部避障（DWA、VFH），在靜態與動態障礙物環境下實現安全導航。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">📡</div>
+          <h3>感測器融合</h3>
+          <p>整合 IMU、LiDAR、深度相機與 GPS 資料，透過擴展卡爾曼濾波器（EKF）提升狀態估測精度。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🤖</div>
+          <h3>地面自走車控制</h3>
+          <p>開發差速驅動 AGV 的運動控制模型，實現倉儲環境中的自主巡線、搬運與目標追蹤功能。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🖥️</div>
+          <h3>嵌入式系統整合</h3>
+          <p>在 NVIDIA Jetson、Raspberry Pi 等邊緣運算平台上部署 ROS 節點，實現車載即時推理與控制。</p>
+        </div>
+        <div class="pd-topic-card card-hover">
+          <div class="pd-topic-icon">🌐</div>
+          <h3>多機協同任務</h3>
+          <p>研究多台無人機或無人車的分散式協調策略，完成編隊飛行、協同探索與任務分配等應用。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研究目標 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🎯 研究目標</h2>
+      <div class="pd-goal-list">
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">01</div>
+          <div class="pd-goal-content">
+            <h4>建立高穩定飛控架構</h4>
+            <p>設計能抵抗外部干擾的魯棒飛控系統，確保複雜氣流環境下的穩定飛行。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">02</div>
+          <div class="pd-goal-content">
+            <h4>實現 GPS-denied 導航</h4>
+            <p>在無 GPS 訊號的室內環境中，透過視覺里程計（VO）與 SLAM 技術完成自主定位。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">03</div>
+          <div class="pd-goal-content">
+            <h4>開發輕量化邊緣推理</h4>
+            <p>將目標偵測模型壓縮部署至嵌入式裝置，在功耗限制下達到即時感知與決策。</p>
+          </div>
+        </div>
+        <div class="pd-goal-item">
+          <div class="pd-goal-num">04</div>
+          <div class="pd-goal-content">
+            <h4>建構多機協同框架</h4>
+            <p>設計分散式通訊協定，支援異構載具（UAV + AGV）執行協作任務。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 使用技術 -->
+    <div class="pd-section reveal">
+      <h2 class="pd-section-title">🛠️ 使用技術與工具</h2>
+      <div class="pd-tech-grid">
+        <span class="pd-tech-tag">ROS / ROS2</span>
+        <span class="pd-tech-tag">PX4 Autopilot</span>
+        <span class="pd-tech-tag">ArduPilot</span>
+        <span class="pd-tech-tag">Python</span>
+        <span class="pd-tech-tag">C++</span>
+        <span class="pd-tech-tag">MAVROS</span>
+        <span class="pd-tech-tag">Gazebo Simulation</span>
+        <span class="pd-tech-tag">OpenCV</span>
+        <span class="pd-tech-tag">ORB-SLAM3</span>
+        <span class="pd-tech-tag">Extended Kalman Filter</span>
+        <span class="pd-tech-tag">NVIDIA Jetson</span>
+        <span class="pd-tech-tag">Raspberry Pi</span>
+        <span class="pd-tech-tag">LiDAR</span>
+        <span class="pd-tech-tag">Depth Camera (RealSense)</span>
+        <span class="pd-tech-tag">IMU</span>
+        <span class="pd-tech-tag">A* / RRT*</span>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
