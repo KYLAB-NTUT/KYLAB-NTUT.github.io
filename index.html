@@ -151,15 +151,15 @@
       </div>
       <button class="gp-arrow gp-arrow-right" id="gpNext" aria-label="下一個">&#8250;</button>
       <div class="gp-dots" id="gpDots"></div>
-      <button class="gp-mute-btn" id="gpMuteBtn" aria-label="開啟聲音">
+      <button class="gp-mute-btn" id="gpMuteBtn" aria-label="關閉聲音">
         <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
+          stroke-linecap="round" stroke-linejoin="round" style="display:none">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
           <line x1="23" y1="9" x2="17" y2="15" />
           <line x1="17" y1="9" x2="23" y2="15" />
         </svg>
         <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
           <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
@@ -204,7 +204,7 @@
       var slides = Array.from(track.querySelectorAll('.gp-slide'));
       var total = slides.length;
       var current = 0;
-      var isMuted = true;  // 預設靜音
+      var isMuted = false; // 預設聲音跟著 scroll 走
       var scrollVol = 0;   // 0~100，由 scroll 決定
       var players = {};    // index → YT.Player
 
@@ -254,7 +254,8 @@
             },
             events: {
               onReady: function (e) {
-                e.target.setVolume(0);
+                e.target.unMute();      // 解除 YouTube 靜音狀態，才能用 setVolume 控制
+                e.target.setVolume(0);  // 從 0 開始，由 scroll 漸漸打開
                 e.target.playVideo();
               },
               onStateChange: function (e) {
@@ -302,7 +303,7 @@
       /* 靜音按鈕 */
       muteBtn.addEventListener('click', function () {
         isMuted = !isMuted;
-        muteBtn.querySelector('.icon-muted').style.display = isMuted ? '' : 'none';
+        muteBtn.querySelector('.icon-muted').style.display   = isMuted ? '' : 'none';
         muteBtn.querySelector('.icon-unmuted').style.display = isMuted ? 'none' : '';
         muteBtn.setAttribute('aria-label', isMuted ? '開啟聲音' : '關閉聲音');
         applyVolume();

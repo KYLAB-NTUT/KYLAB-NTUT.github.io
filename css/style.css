@@ -1731,6 +1731,12 @@ html.dark-theme .pd-goal-num {
   font-weight: 700;
   letter-spacing: 0.5px;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gp-stage:hover .gp-caption {
+  opacity: 1;
 }
 
 /* 左右箭頭 */
