@@ -140,7 +140,8 @@
           <!-- 新增影片：複製一個 gp-slide，修改 data-yt、data-url、data-caption -->
           <div class="gp-slide" data-yt="xkfsnWIMpc8" data-url="https://www.youtube.com/watch?v=xkfsnWIMpc8"
             data-caption="精選影片"></div>
-          <div class="gp-slide" data-yt="-LxitGcMIHw" data-url="https://youtu.be/GOsvmJ28YwQ" data-caption="精選影片"></div>
+          <div class="gp-slide" data-yt="GOsvmJ28YwQ" data-url="https://www.youtube.com/watch?v=GOsvmJ28YwQ"
+            data-caption="精選影片"></div>
           <!-- 範例（可自行新增）：
           <div class="gp-slide"
             data-yt="VIDEO_ID"
@@ -303,7 +304,7 @@
       /* 靜音按鈕 */
       muteBtn.addEventListener('click', function () {
         isMuted = !isMuted;
-        muteBtn.querySelector('.icon-muted').style.display   = isMuted ? '' : 'none';
+        muteBtn.querySelector('.icon-muted').style.display = isMuted ? '' : 'none';
         muteBtn.querySelector('.icon-unmuted').style.display = isMuted ? 'none' : '';
         muteBtn.setAttribute('aria-label', isMuted ? '開啟聲音' : '關閉聲音');
         applyVolume();
