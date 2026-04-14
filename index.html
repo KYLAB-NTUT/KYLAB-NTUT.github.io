@@ -133,39 +133,62 @@
       </div>
     </div>
 
-    <div class="gp-stage reveal" id="gpStage">
-      <button class="gp-arrow gp-arrow-left" id="gpPrev" aria-label="上一個">&#8249;</button>
-      <div class="gp-carousel" id="gpCarousel">
-        <div class="gp-track" id="gpTrack">
-          <!-- 新增影片：複製一個 gp-slide，修改 data-yt、data-url、data-caption -->
-          <div class="gp-slide" data-yt="xkfsnWIMpc8" data-url="https://www.youtube.com/watch?v=xkfsnWIMpc8"
-            data-caption="精選影片"></div>
-          <div class="gp-slide" data-yt="GOsvmJ28YwQ" data-url="https://www.youtube.com/watch?v=GOsvmJ28YwQ"
-            data-caption="精選影片"></div>
-          <!-- 範例（可自行新增）：
-          <div class="gp-slide"
-            data-yt="VIDEO_ID"
-            data-url="https://www.youtube.com/watch?v=VIDEO_ID"
-            data-caption="影片標題"></div>
-          -->
+    <!-- gp-wrap 包住 stage + controls，scroll 時整體展開 -->
+    <div class="gp-wrap reveal" id="gpWrap">
+      <div class="gp-stage" id="gpStage">
+        <button class="gp-arrow gp-arrow-left" id="gpPrev" aria-label="上一個">&#8249;</button>
+        <div class="gp-carousel" id="gpCarousel">
+          <div class="gp-track" id="gpTrack">
+            <!-- 新增影片：複製一個 gp-slide，修改 data-yt、data-url、data-caption -->
+            <div class="gp-slide" data-yt="xkfsnWIMpc8" data-url="https://www.youtube.com/watch?v=xkfsnWIMpc8"
+              data-caption="精選影片"></div>
+            <div class="gp-slide" data-yt="GOsvmJ28YwQ" data-url="https://www.youtube.com/watch?v=GOsvmJ28YwQ"
+              data-caption="精選影片"></div>
+            <!-- 範例（可自行新增）：
+            <div class="gp-slide"
+              data-yt="VIDEO_ID"
+              data-url="https://www.youtube.com/watch?v=VIDEO_ID"
+              data-caption="影片標題"></div>
+            -->
+          </div>
+        </div>
+        <button class="gp-arrow gp-arrow-right" id="gpNext" aria-label="下一個">&#8250;</button>
+        <div class="gp-dots" id="gpDots"></div>
+      </div>
+
+      <!-- 無人機控制列 -->
+      <div class="gp-controls" id="gpControls">
+        <!-- 進度條 -->
+        <div class="gp-progress-area">
+          <div class="gp-progress-track" id="gpProgressTrack">
+            <div class="gp-progress-fill" id="gpProgressFill"></div>
+            <div class="gp-drone-thumb" id="gpDroneThumb">
+              <span class="gp-drone-icon">🛸</span>
+            </div>
+          </div>
+        </div>
+        <!-- 控制按鈕列 -->
+        <div class="gp-ctrl-row">
+          <!-- 播放/暫停 -->
+          <button class="gp-ctrl-btn" id="gpPlayPause" aria-label="暫停">
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          <!-- 時間 -->
+          <span class="gp-time" id="gpTime">0:00 / 0:00</span>
+          <div class="gp-ctrl-space"></div>
+          <!-- 靜音 -->
+          <button class="gp-ctrl-btn" id="gpMuteBtn" aria-label="關閉聲音">
+            <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+          <!-- 全螢幕 -->
+          <button class="gp-ctrl-btn" id="gpFullscreen" aria-label="全螢幕">
+            <svg class="icon-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            <svg class="icon-compress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/></svg>
+          </button>
         </div>
       </div>
-      <button class="gp-arrow gp-arrow-right" id="gpNext" aria-label="下一個">&#8250;</button>
-      <div class="gp-dots" id="gpDots"></div>
-      <button class="gp-mute-btn" id="gpMuteBtn" aria-label="關閉聲音">
-        <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" style="display:none">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-          <line x1="23" y1="9" x2="17" y2="15" />
-          <line x1="17" y1="9" x2="23" y2="15" />
-        </svg>
-        <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-        </svg>
-      </button>
     </div>
 
     <div class="gp-inner">
@@ -182,10 +205,7 @@
       s.src = 'https://www.youtube.com/iframe_api';
       document.head.appendChild(s);
     })();
-
-    var _ytReady = false;
-    var _ytQueue = [];
-    var _prevYTCb = window.onYouTubeIframeAPIReady;
+    var _ytReady = false, _ytQueue = [], _prevYTCb = window.onYouTubeIframeAPIReady;
     window.onYouTubeIframeAPIReady = function () {
       _ytReady = true;
       if (_prevYTCb) _prevYTCb();
@@ -194,22 +214,31 @@
     };
     function whenYTReady(fn) { _ytReady ? fn() : _ytQueue.push(fn); }
 
-    /* ── Carousel ── */
+    /* ── Carousel + Controls ── */
     (function () {
-      var track = document.getElementById('gpTrack');
-      var stage = document.getElementById('gpStage');
-      var dotsWrap = document.getElementById('gpDots');
-      var muteBtn = document.getElementById('gpMuteBtn');
-      if (!track || !stage) return;
+      var wrap      = document.getElementById('gpWrap');
+      var stage     = document.getElementById('gpStage');
+      var track     = document.getElementById('gpTrack');
+      var dotsWrap  = document.getElementById('gpDots');
+      var muteBtn   = document.getElementById('gpMuteBtn');
+      var playBtn   = document.getElementById('gpPlayPause');
+      var fsBtn     = document.getElementById('gpFullscreen');
+      var timeEl    = document.getElementById('gpTime');
+      var pTrack    = document.getElementById('gpProgressTrack');
+      var pFill     = document.getElementById('gpProgressFill');
+      var dThumb    = document.getElementById('gpDroneThumb');
+      if (!wrap || !track) return;
 
-      var slides = Array.from(track.querySelectorAll('.gp-slide'));
-      var total = slides.length;
-      var current = 0;
-      var isMuted = false; // 預設聲音跟著 scroll 走
-      var scrollVol = 0;   // 0~100，由 scroll 決定
-      var players = {};    // index → YT.Player
+      var slides    = Array.from(track.querySelectorAll('.gp-slide'));
+      var total     = slides.length;
+      var current   = 0;
+      var isMuted   = false;   // 預設聲音跟 scroll 走
+      var scrollVol = 0;       // 0~100
+      var players   = {};
+      var progTimer = null;
+      var dragging  = false;
 
-      /* dots */
+      /* ── dots ── */
       slides.forEach(function (_, i) {
         var dot = document.createElement('button');
         dot.className = 'gp-dot' + (i === 0 ? ' active' : '');
@@ -219,26 +248,87 @@
       });
       if (total <= 1) stage.classList.add('gp-single');
 
-      /* 建立 YT.Player */
+      /* ── 時間格式 ── */
+      function fmt(s) {
+        s = Math.floor(s || 0);
+        var m = Math.floor(s / 60), ss = s % 60;
+        return m + ':' + (ss < 10 ? '0' : '') + ss;
+      }
+
+      /* ── 進度條更新 ── */
+      function updateProgress() {
+        var p = players[current];
+        if (!p || !p.getCurrentTime) return;
+        var cur = p.getCurrentTime() || 0;
+        var dur = p.getDuration() || 0;
+        var pct = dur > 0 ? (cur / dur) * 100 : 0;
+        setProgressUI(pct, cur, dur);
+      }
+
+      function setProgressUI(pct, cur, dur) {
+        pFill.style.width = pct + '%';
+        dThumb.style.left = pct + '%';
+        if (timeEl) timeEl.textContent = fmt(cur) + ' / ' + fmt(dur);
+      }
+
+      function startProgress() {
+        clearInterval(progTimer);
+        progTimer = setInterval(function () { if (!dragging) updateProgress(); }, 250);
+      }
+
+      function stopProgress() { clearInterval(progTimer); }
+
+      /* ── seek by click / drag ── */
+      function seekFromEvent(e) {
+        var rect = pTrack.getBoundingClientRect();
+        var cx = e.touches ? e.touches[0].clientX : e.clientX;
+        var pct = Math.max(0, Math.min(1, (cx - rect.left) / rect.width));
+        var p = players[current];
+        if (p && p.getDuration) {
+          p.seekTo(pct * p.getDuration(), true);
+          var dur = p.getDuration();
+          setProgressUI(pct * 100, pct * dur, dur);
+        }
+      }
+      pTrack.addEventListener('mousedown',  function (e) { dragging = true; seekFromEvent(e); });
+      document.addEventListener('mousemove', function (e) { if (dragging) seekFromEvent(e); });
+      document.addEventListener('mouseup',   function ()  { dragging = false; });
+      pTrack.addEventListener('touchstart',  function (e) { dragging = true; seekFromEvent(e); }, { passive: true });
+      document.addEventListener('touchmove', function (e) { if (dragging) seekFromEvent(e); }, { passive: true });
+      document.addEventListener('touchend',  function ()  { dragging = false; });
+
+      /* ── 播放/暫停 icon ── */
+      function setPlayIcon(playing) {
+        playBtn.querySelector('.icon-pause').style.display = playing ? '' : 'none';
+        playBtn.querySelector('.icon-play').style.display  = playing ? 'none' : '';
+        playBtn.setAttribute('aria-label', playing ? '暫停' : '播放');
+      }
+
+      /* ── 音量 ── */
+      function applyVolume() {
+        var p = players[current];
+        if (!p || !p.setVolume) return;
+        p.setVolume(isMuted ? 0 : Math.round(scrollVol));
+      }
+
+      /* ── 載入 slide ── */
       function loadSlide(index) {
         if (players[index]) return;
-        var slide = slides[index];
-        var ytId = slide.dataset.yt;
-        var url = slide.dataset.url || '#';
+        var slide   = slides[index];
+        var ytId    = slide.dataset.yt;
+        var url     = slide.dataset.url || '#';
         var caption = slide.dataset.caption || '';
         if (!ytId) return;
 
-        var playerDiv = document.createElement('div');
-        playerDiv.id = 'gp-player-' + index;
-        slide.appendChild(playerDiv);
+        var div = document.createElement('div');
+        div.id  = 'gp-player-' + index;
+        slide.appendChild(div);
 
-        var overlay = document.createElement('a');
-        overlay.href = url;
-        overlay.target = '_blank';
-        overlay.rel = 'noopener';
-        overlay.className = 'gp-video-overlay';
-        overlay.setAttribute('aria-label', '在 YouTube 觀看');
-        slide.appendChild(overlay);
+        var a = document.createElement('a');
+        a.href = url; a.target = '_blank'; a.rel = 'noopener';
+        a.className = 'gp-video-overlay';
+        a.setAttribute('aria-label', '在 YouTube 觀看');
+        slide.appendChild(a);
 
         var cap = document.createElement('div');
         cap.className = 'gp-caption';
@@ -248,19 +338,23 @@
         whenYTReady(function () {
           players[index] = new YT.Player('gp-player-' + index, {
             videoId: ytId,
-            playerVars: {
-              autoplay: 1, mute: 1,
-              controls: 0, playsinline: 1,
-              rel: 0, modestbranding: 1
-            },
+            playerVars: { autoplay: 1, mute: 1, controls: 0, playsinline: 1, rel: 0, modestbranding: 1 },
             events: {
               onReady: function (e) {
-                e.target.unMute();      // 解除 YouTube 靜音狀態，才能用 setVolume 控制
-                e.target.setVolume(0);  // 從 0 開始，由 scroll 漸漸打開
+                e.target.unMute();
+                /* 套用目前靜音狀態與音量，避免切換影片後靜音 */
+                e.target.setVolume(isMuted ? 0 : Math.round(scrollVol));
                 e.target.playVideo();
               },
               onStateChange: function (e) {
-                if (e.data === YT.PlayerState.ENDED) {
+                if (e.data === YT.PlayerState.PLAYING) {
+                  startProgress(); setPlayIcon(true);
+                } else if (e.data === YT.PlayerState.PAUSED) {
+                  stopProgress(); setPlayIcon(false);
+                } else if (e.data === YT.PlayerState.ENDED) {
+                  stopProgress();
+                  setProgressUI(100, players[current] ? players[current].getDuration() : 0,
+                                     players[current] ? players[current].getDuration() : 0);
                   goTo(current + 1);
                 }
               }
@@ -270,21 +364,11 @@
       }
 
       function unloadSlide(index) {
-        if (players[index]) {
-          try { players[index].destroy(); } catch (e) { }
-          delete players[index];
-        }
+        stopProgress();
+        if (players[index]) { try { players[index].destroy(); } catch (e) {} delete players[index]; }
         slides[index].innerHTML = '';
-      }
-
-      function applyVolume() {
-        var p = players[current];
-        if (!p || !p.setVolume) return;
-        if (isMuted) {
-          p.setVolume(0);
-        } else {
-          p.setVolume(Math.round(scrollVol));
-        }
+        setProgressUI(0, 0, 0);
+        setPlayIcon(true);
       }
 
       function updateDots(index) {
@@ -301,38 +385,55 @@
         updateDots(current);
       }
 
-      /* 靜音按鈕 */
+      /* ── 播放/暫停按鈕 ── */
+      playBtn.addEventListener('click', function () {
+        var p = players[current];
+        if (!p) return;
+        if (p.getPlayerState() === YT.PlayerState.PLAYING) { p.pauseVideo(); }
+        else { p.playVideo(); }
+      });
+
+      /* ── 靜音按鈕 ── */
       muteBtn.addEventListener('click', function () {
         isMuted = !isMuted;
-        muteBtn.querySelector('.icon-muted').style.display = isMuted ? '' : 'none';
+        muteBtn.querySelector('.icon-muted').style.display   = isMuted ? '' : 'none';
         muteBtn.querySelector('.icon-unmuted').style.display = isMuted ? 'none' : '';
         muteBtn.setAttribute('aria-label', isMuted ? '開啟聲音' : '關閉聲音');
         applyVolume();
       });
 
-      /* 箭頭 */
+      /* ── 全螢幕 ── */
+      fsBtn.addEventListener('click', function () {
+        if (!document.fullscreenElement) {
+          (wrap.requestFullscreen || wrap.webkitRequestFullscreen).call(wrap);
+        } else {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        }
+      });
+      document.addEventListener('fullscreenchange', function () {
+        var inFs = !!document.fullscreenElement;
+        fsBtn.querySelector('.icon-expand').style.display   = inFs ? 'none' : '';
+        fsBtn.querySelector('.icon-compress').style.display = inFs ? '' : 'none';
+      });
+
+      /* ── 箭頭 ── */
       document.getElementById('gpPrev').addEventListener('click', function () { goTo(current - 1); });
       document.getElementById('gpNext').addEventListener('click', function () { goTo(current + 1); });
 
-      /* Scroll：全螢幕展開 + 音量漸變 */
+      /* ── Scroll：全螢幕展開 + 音量漸變 ── */
       function onScroll() {
-        var rect = stage.getBoundingClientRect();
-        var vh = window.innerHeight;
+        var rect     = wrap.getBoundingClientRect();
+        var vh       = window.innerHeight;
         var progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.55)));
-
-        /* 全螢幕 */
-        var pct = (1 - progress) * 5;
-        stage.style.marginLeft = pct + '%';
-        stage.style.marginRight = pct + '%';
-        stage.style.borderRadius = ((1 - progress) * 24) + 'px';
-
-        /* 音量 0→100 */
+        var pct      = (1 - progress) * 5;
+        wrap.style.marginLeft   = pct + '%';
+        wrap.style.marginRight  = pct + '%';
+        wrap.style.borderRadius = ((1 - progress) * 20) + 'px';
         scrollVol = progress * 100;
         applyVolume();
       }
 
       window.addEventListener('scroll', onScroll, { passive: true });
-
       loadSlide(0);
       onScroll();
     })();

@@ -1677,14 +1677,18 @@ html.dark-theme .pd-goal-num {
   padding: 0 5%;
 }
 
-/* Stage：預設留左右 5% margin，scroll 時 JS 逐漸縮至 0 */
-.gp-stage {
-  position: relative;
+/* gp-wrap：包住 stage + controls，scroll 時整體展開 */
+.gp-wrap {
   margin: 40px 5%;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
   background: #000;
+}
+
+.gp-stage {
+  position: relative;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
 .gp-carousel {
@@ -1714,6 +1718,12 @@ html.dark-theme .pd-goal-num {
   display: block;
 }
 
+/* YT.Player 產生的容器 div 需填滿 slide */
+.gp-slide > div {
+  position: absolute;
+  inset: 0;
+}
+
 .gp-video-overlay {
   position: absolute;
   inset: 0;
@@ -1735,9 +1745,7 @@ html.dark-theme .pd-goal-num {
   transition: opacity 0.3s;
 }
 
-.gp-stage:hover .gp-caption {
-  opacity: 1;
-}
+.gp-stage:hover .gp-caption { opacity: 1; }
 
 /* 左右箭頭 */
 .gp-arrow {
@@ -1770,48 +1778,8 @@ html.dark-theme .pd-goal-num {
 .gp-arrow-left  { left: 20px; }
 .gp-arrow-right { right: 20px; }
 
-/* 只有一個影片時隱藏箭頭與 dots */
 .gp-stage.gp-single .gp-arrow,
 .gp-stage.gp-single .gp-dots { display: none; }
-
-/* YT.Player 產生的容器 div 需填滿 slide */
-.gp-slide > div {
-  position: absolute;
-  inset: 0;
-}
-
-/* 靜音切換按鈕 */
-.gp-mute-btn {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.2s;
-  padding: 0;
-}
-
-.gp-mute-btn:hover {
-  background: rgba(0, 0, 0, 0.7);
-  transform: scale(1.1);
-}
-
-.gp-mute-btn svg {
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-}
 
 /* Dots */
 .gp-dots {
@@ -1840,23 +1808,121 @@ html.dark-theme .pd-goal-num {
   transform: scale(1.35);
 }
 
+/* ── 無人機控制列 ── */
+.gp-controls {
+  background: rgba(8, 8, 18, 0.95);
+  padding: 10px 20px 14px;
+  border-top: 1px solid rgba(100, 210, 214, 0.15);
+}
+
+/* 進度條區 */
+.gp-progress-area {
+  padding: 14px 0 6px;
+  cursor: pointer;
+}
+
+.gp-progress-track {
+  position: relative;
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  margin: 12px 0;
+}
+
+.gp-progress-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-cyan, #64D2D6), var(--color-purple, #B794F4));
+  border-radius: 4px;
+  transition: width 0.25s linear;
+  pointer-events: none;
+}
+
+/* 無人機 thumb */
+.gp-drone-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 5;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.gp-drone-icon {
+  display: block;
+  font-size: 1.5rem;
+  animation: gpDroneFloat 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(100,210,214,0.7));
+}
+
+@keyframes gpDroneFloat {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50%       { transform: translateY(-5px) rotate(8deg); }
+}
+
+.gp-progress-track:hover .gp-progress-fill {
+  height: 6px;
+  top: -1px;
+}
+
+/* 控制按鈕列 */
+.gp-ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gp-ctrl-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.gp-ctrl-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+.gp-ctrl-btn svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.gp-time {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.gp-ctrl-space { flex: 1; }
+
 .gp-cta {
   text-align: center;
   margin-top: 40px;
 }
 
 @media (max-width: 768px) {
-  .gp-stage {
+  .gp-wrap {
     margin: 24px 0;
     border-radius: 0;
   }
-  .gp-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
+  .gp-arrow { width: 40px; height: 40px; font-size: 1.5rem; }
   .gp-arrow-left  { left: 10px; }
   .gp-arrow-right { right: 10px; }
+  .gp-drone-icon { font-size: 1.2rem; }
 }
 
 /* ====== GALLERY PAGE ====== */
