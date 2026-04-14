@@ -25,7 +25,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script>try{if(localStorage.getItem('saclab-theme')==='dark')document.documentElement.classList.add('dark-theme');}catch(e){}</script>
+  <script>try { if (localStorage.getItem('saclab-theme') === 'dark') document.documentElement.classList.add('dark-theme'); } catch (e) { }</script>
 
   <script type="application/ld+json">
   {
@@ -138,14 +138,9 @@
       <div class="gp-carousel" id="gpCarousel">
         <div class="gp-track" id="gpTrack">
           <!-- 新增影片：複製一個 gp-slide，修改 data-yt、data-url、data-caption -->
-          <div class="gp-slide"
-            data-yt="xkfsnWIMpc8"
-            data-url="https://www.youtube.com/watch?v=xkfsnWIMpc8"
+          <div class="gp-slide" data-yt="xkfsnWIMpc8" data-url="https://www.youtube.com/watch?v=xkfsnWIMpc8"
             data-caption="精選影片"></div>
-          <div class="gp-slide"
-            data-yt="-LxitGcMIHw"
-            data-url="https://youtu.be/-LxitGcMIHw"
-            data-caption="精選影片"></div>
+          <div class="gp-slide" data-yt="-LxitGcMIHw" data-url="https://youtu.be/GOsvmJ28YwQ" data-caption="精選影片"></div>
           <!-- 範例（可自行新增）：
           <div class="gp-slide"
             data-yt="VIDEO_ID"
@@ -157,8 +152,18 @@
       <button class="gp-arrow gp-arrow-right" id="gpNext" aria-label="下一個">&#8250;</button>
       <div class="gp-dots" id="gpDots"></div>
       <button class="gp-mute-btn" id="gpMuteBtn" aria-label="開啟聲音">
-        <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <line x1="23" y1="9" x2="17" y2="15" />
+          <line x1="17" y1="9" x2="23" y2="15" />
+        </svg>
+        <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+        </svg>
       </button>
     </div>
 
@@ -190,19 +195,18 @@
 
     /* ── Carousel ── */
     (function () {
-      var track    = document.getElementById('gpTrack');
-      var stage    = document.getElementById('gpStage');
+      var track = document.getElementById('gpTrack');
+      var stage = document.getElementById('gpStage');
       var dotsWrap = document.getElementById('gpDots');
-      var muteBtn  = document.getElementById('gpMuteBtn');
+      var muteBtn = document.getElementById('gpMuteBtn');
       if (!track || !stage) return;
 
-      var slides      = Array.from(track.querySelectorAll('.gp-slide'));
-      var total       = slides.length;
-      var current     = 0;
-      var timer       = null;
-      var isMuted     = true;   // 預設靜音
-      var scrollVol   = 0;      // 0~100，由 scroll 決定
-      var players     = {};     // index → YT.Player
+      var slides = Array.from(track.querySelectorAll('.gp-slide'));
+      var total = slides.length;
+      var current = 0;
+      var isMuted = true;  // 預設靜音
+      var scrollVol = 0;   // 0~100，由 scroll 決定
+      var players = {};    // index → YT.Player
 
       /* dots */
       slides.forEach(function (_, i) {
@@ -217,9 +221,9 @@
       /* 建立 YT.Player */
       function loadSlide(index) {
         if (players[index]) return;
-        var slide   = slides[index];
-        var ytId    = slide.dataset.yt;
-        var url     = slide.dataset.url || '#';
+        var slide = slides[index];
+        var ytId = slide.dataset.yt;
+        var url = slide.dataset.url || '#';
         var caption = slide.dataset.caption || '';
         if (!ytId) return;
 
@@ -244,14 +248,19 @@
           players[index] = new YT.Player('gp-player-' + index, {
             videoId: ytId,
             playerVars: {
-              autoplay: 1, mute: 1, loop: 1,
-              playlist: ytId, controls: 0,
-              playsinline: 1, rel: 0, modestbranding: 1
+              autoplay: 1, mute: 1,
+              controls: 0, playsinline: 1,
+              rel: 0, modestbranding: 1
             },
             events: {
               onReady: function (e) {
                 e.target.setVolume(0);
                 e.target.playVideo();
+              },
+              onStateChange: function (e) {
+                if (e.data === YT.PlayerState.ENDED) {
+                  goTo(current + 1);
+                }
               }
             }
           });
@@ -260,7 +269,7 @@
 
       function unloadSlide(index) {
         if (players[index]) {
-          try { players[index].destroy(); } catch (e) {}
+          try { players[index].destroy(); } catch (e) { }
           delete players[index];
         }
         slides[index].innerHTML = '';
@@ -288,19 +297,13 @@
         track.style.transform = 'translateX(-' + (current * 100) + '%)';
         loadSlide(current);
         updateDots(current);
-        resetTimer();
-      }
-
-      function resetTimer() {
-        clearInterval(timer);
-        if (total > 1) timer = setInterval(function () { goTo(current + 1); }, 6000);
       }
 
       /* 靜音按鈕 */
       muteBtn.addEventListener('click', function () {
         isMuted = !isMuted;
-        muteBtn.querySelector('.icon-muted').style.display   = isMuted  ? '' : 'none';
-        muteBtn.querySelector('.icon-unmuted').style.display = isMuted  ? 'none' : '';
+        muteBtn.querySelector('.icon-muted').style.display = isMuted ? '' : 'none';
+        muteBtn.querySelector('.icon-unmuted').style.display = isMuted ? 'none' : '';
         muteBtn.setAttribute('aria-label', isMuted ? '開啟聲音' : '關閉聲音');
         applyVolume();
       });
@@ -311,14 +314,14 @@
 
       /* Scroll：全螢幕展開 + 音量漸變 */
       function onScroll() {
-        var rect     = stage.getBoundingClientRect();
-        var vh       = window.innerHeight;
+        var rect = stage.getBoundingClientRect();
+        var vh = window.innerHeight;
         var progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.55)));
 
         /* 全螢幕 */
         var pct = (1 - progress) * 5;
-        stage.style.marginLeft   = pct + '%';
-        stage.style.marginRight  = pct + '%';
+        stage.style.marginLeft = pct + '%';
+        stage.style.marginRight = pct + '%';
         stage.style.borderRadius = ((1 - progress) * 24) + 'px';
 
         /* 音量 0→100 */
@@ -329,7 +332,6 @@
       window.addEventListener('scroll', onScroll, { passive: true });
 
       loadSlide(0);
-      resetTimer();
       onScroll();
     })();
   </script>
