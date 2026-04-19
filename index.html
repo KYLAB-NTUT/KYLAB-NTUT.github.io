@@ -502,11 +502,15 @@
               });
           }
 
-          // 有子資料夾：每個資料夾取第 1 張
+          // 有子資料夾：每個資料夾抓多張，隨機選一張
           return Promise.all(folders.map(function (folder) {
-            return fetch(api("'" + folder.id + "' in parents and mimeType contains 'image/' and trashed=false", '&orderBy=name&pageSize=1'))
+            return fetch(api("'" + folder.id + "' in parents and mimeType contains 'image/' and trashed=false", '&orderBy=name&pageSize=50'))
               .then(function (r) { return r.json(); })
-              .then(function (d) { return d.files && d.files[0] ? d.files[0] : null; });
+              .then(function (d) {
+                var files = d.files || [];
+                if (!files.length) return null;
+                return files[Math.floor(Math.random() * files.length)];
+              });
           }));
         })
         .then(function (covers) {
