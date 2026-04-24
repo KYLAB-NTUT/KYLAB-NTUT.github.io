@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js';
-import { getFirestore, collection, getDocs, doc, updateDoc, query, where, orderBy } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js';
+import { getFirestore, collection, getDocs, doc, updateDoc, query, where } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-storage.js';
 
@@ -87,9 +87,10 @@ function renderMembers(members) {
 
 async function loadMembers() {
   try {
-    const q = query(collection(db, 'members'), orderBy('order'));
-    const snap = await getDocs(q);
-    const members = snap.docs.map(d => ({ id: d.id, data: d.data() }));
+    const snap = await getDocs(collection(db, 'members'));
+    const members = snap.docs
+      .map(d => ({ id: d.id, data: d.data() }))
+      .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
     renderMembers(members);
     if (currentMemberId) addEditButton(currentMemberId);
   } catch (err) {
