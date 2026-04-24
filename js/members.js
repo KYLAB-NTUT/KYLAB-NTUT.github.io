@@ -47,7 +47,7 @@ function buildCardHTML(m, docId) {
 
   return `
     <div class="team-card member-card reveal active card-hover" data-member-id="${docId}">
-      <div class="team-avatar-wrap">
+      <div class="team-avatar-wrap"${docId === 'melvin' ? ' id="melvin-avatar-wrap"' : ''}>
         <div class="team-avatar avatar-placeholder">${avatarContent}</div>
         <div class="avatar-ring ${m.avatarColor || 'cyan'}"></div>
       </div>

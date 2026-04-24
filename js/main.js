@@ -210,14 +210,12 @@ if (themeToggle) {
 
 // ── 8. Melvin 彩蛋 ──
 (function initMelvinEasterEgg() {
-  var wrap = document.getElementById('melvin-avatar-wrap');
-  if (!wrap) return;
-
   var clickCount = 0;
   var resetTimer = null;
   var isPlaying = false;
 
-  wrap.addEventListener('click', function () {
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('#melvin-avatar-wrap')) return;
     if (isPlaying) return;
 
     clickCount++;
