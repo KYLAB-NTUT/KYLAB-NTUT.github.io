@@ -86,11 +86,17 @@ function renderMembers(members) {
 }
 
 async function loadMembers() {
-  const q = query(collection(db, 'members'), orderBy('order'));
-  const snap = await getDocs(q);
-  const members = snap.docs.map(d => ({ id: d.id, data: d.data() }));
-  renderMembers(members);
-  if (currentMemberId) addEditButton(currentMemberId);
+  try {
+    const q = query(collection(db, 'members'), orderBy('order'));
+    const snap = await getDocs(q);
+    const members = snap.docs.map(d => ({ id: d.id, data: d.data() }));
+    renderMembers(members);
+    if (currentMemberId) addEditButton(currentMemberId);
+  } catch (err) {
+    console.error('loadMembers failed:', err);
+    const grid = document.getElementById('members-grid');
+    if (grid) grid.innerHTML = `<p style="padding:40px;color:var(--text-muted)">載入失敗：${err.message}</p>`;
+  }
 }
 
 function initRevealAnimation() {
