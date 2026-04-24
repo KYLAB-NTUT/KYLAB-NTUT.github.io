@@ -6,30 +6,33 @@
 
 (function () {
   // Detect current page for active nav link
-  const page = location.pathname.split('/').pop() || 'index.html';
+  const path = location.pathname.replace(/\/index\.html$/, '/');
 
   function active(href) {
-    return page === href ? ' class="active"' : '';
+    if (href === '/') return (path === '/' || path === '/index.html') ? ' class="active"' : '';
+    return path.startsWith(href) ? ' class="active"' : '';
   }
 
   const topHTML = `
     <div class="cursor-glow" id="cursorGlow"></div>
-    <img src="images/drone.png" class="drone-cursor" id="droneCursor" alt="Drone Cursor">
+    <img src="/images/drone.png" class="drone-cursor" id="droneCursor" alt="Drone Cursor">
     <nav id="navbar">
       <div class="nav-brand">
-        <div class="nav-logo-box">
-          <span class="nav-logo-icon">⚙️</span>
-        </div>
-        <div class="logo-text">KY <span>Lab</span></div>
+        <a href="/" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+          <div class="nav-logo-box">
+            <span class="nav-logo-icon">⚙️</span>
+          </div>
+          <div class="logo-text">KY <span>Lab</span></div>
+        </a>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html"${active('index.html')}>Home</a></li>
-        <li><a href="research.html"${active('research.html')}>Research</a></li>
-        <li><a href="projects.html"${active('projects.html')}>Projects</a></li>
-        <li><a href="professor.html"${active('professor.html')}>Professor</a></li>
-        <li><a href="members.html"${active('members.html')}>Members</a></li>
-        <li><a href="awards.html"${active('awards.html')}>Awards</a></li>
-        <li><a href="gallery.html"${active('gallery.html')}>Gallery</a></li>
+        <li><a href="/"${active('/')}>Home</a></li>
+        <li><a href="/research/"${active('/research/')}>Research</a></li>
+        <li><a href="/projects/"${active('/projects/')}>Projects</a></li>
+        <li><a href="/professor/"${active('/professor/')}>Professor</a></li>
+        <li><a href="/members/"${active('/members/')}>Members</a></li>
+        <li><a href="/awards/"${active('/awards/')}>Awards</a></li>
+        <li><a href="/gallery/"${active('/gallery/')}>Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div id="nav-auth"></div>
