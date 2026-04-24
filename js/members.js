@@ -333,7 +333,9 @@ function openEditModal(memberId) {
   setupTagInput();
   pendingPhotoBlob = null;
 
-  document.getElementById('restore-photo-btn').style.display = 'none';
+  const restoreBtn = document.getElementById('restore-photo-btn');
+  restoreBtn.style.display = m.previousPhotoURL ? 'block' : 'none';
+  restoreBtn.textContent = '↩️ 還原上一張頭貼';
   document.getElementById('edit-modal').classList.remove('hidden');
 }
 
@@ -369,9 +371,11 @@ async function saveProfile() {
     const updates = { nickname, bio, customTags: editTags };
 
     if (pendingPhotoBlob) {
+      const oldPhotoURL = currentMemberData.photoURL || '';
       const storageRef = ref(storage, `members/${currentMemberId}/avatar.jpg`);
       await uploadBytes(storageRef, pendingPhotoBlob, { contentType: 'image/jpeg' });
       updates.photoURL = await getDownloadURL(storageRef);
+      if (oldPhotoURL) updates.previousPhotoURL = oldPhotoURL;
     }
 
     await updateDoc(doc(db, 'members', currentMemberId), updates);
@@ -491,14 +495,19 @@ function injectModals() {
   document.getElementById('upload-photo-btn').addEventListener('click', () => {
     document.getElementById('photo-file-input').click();
   });
-  document.getElementById('restore-photo-btn').addEventListener('click', () => {
-    pendingPhotoBlob = null;
-    const preview = document.getElementById('edit-photo-preview');
-    const orig = currentMemberData?.photoURL;
-    if (orig) { preview.src = orig; preview.style.display = 'block'; }
-    else { preview.src = ''; preview.style.display = 'none'; }
-    document.getElementById('restore-photo-btn').style.display = 'none';
-    document.getElementById('photo-file-input').value = '';
+  document.getElementById('restore-photo-btn').addEventListener('click', async () => {
+    const prev = currentMemberData?.previousPhotoURL;
+    if (!prev) return;
+    try {
+      await updateDoc(doc(db, 'members', currentMemberId), { photoURL: prev, previousPhotoURL: '' });
+      currentMemberData = { ...currentMemberData, photoURL: prev, previousPhotoURL: '' };
+      const preview = document.getElementById('edit-photo-preview');
+      preview.src = prev; preview.style.display = 'block';
+      pendingPhotoBlob = null;
+      document.getElementById('photo-file-input').value = '';
+      document.getElementById('restore-photo-btn').style.display = 'none';
+      showToast('已還原上一張頭貼', 'success');
+    } catch (err) { showToast('還原失敗：' + err.message, 'error'); }
   });
   document.getElementById('photo-file-input').addEventListener('change', handlePhotoSelect);
   document.getElementById('edit-modal').addEventListener('click', e => {
