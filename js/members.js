@@ -1,16 +1,15 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getFirestore, collection, getDocs, doc, updateDoc, query, where, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js';
+import { getFirestore, collection, getDocs, doc, updateDoc, query, where, orderBy } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-storage.js';
 
-// ── FIREBASE CONFIG — replace with values from Firebase Console ──
 const firebaseConfig = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME",
-  projectId: "REPLACE_ME",
-  storageBucket: "REPLACE_ME",
-  messagingSenderId: "REPLACE_ME",
-  appId: "REPLACE_ME"
+  apiKey: "AIzaSyBVc5KJl_ZRwriC56yvQsCsQ7NEOXxkvIQ",
+  authDomain: "kylab-ntut.firebaseapp.com",
+  projectId: "kylab-ntut",
+  storageBucket: "kylab-ntut.firebasestorage.app",
+  messagingSenderId: "556294864349",
+  appId: "1:556294864349:web:2653f4e64e0b846da04a34"
 };
 
 const app = initializeApp(firebaseConfig);
