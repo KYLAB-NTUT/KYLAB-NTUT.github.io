@@ -32,6 +32,7 @@
         <li><a href="gallery.html"${active('gallery.html')}>Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div id="nav-auth"></div>
       <button class="nav-toggle" aria-label="選單">
         <span></span><span></span><span></span>
       </button>
