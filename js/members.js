@@ -154,8 +154,10 @@ function updateNavAuth(user) {
     return;
   }
 
-  const avatarHTML = currentMemberData?.photoURL
-    ? `<img src="${currentMemberData.photoURL}" class="nav-user-avatar" alt="avatar" onerror="this.style.display='none'">`
+  const rawNavPhoto = currentMemberData?.photoURL || '';
+  const navPhotoURL = rawNavPhoto && !rawNavPhoto.startsWith('http') ? '/' + rawNavPhoto : rawNavPhoto;
+  const avatarHTML = navPhotoURL
+    ? `<img src="${navPhotoURL}" class="nav-user-avatar" alt="avatar" onerror="this.style.display='none'">`
     : '';
   const label = isAdmin()
     ? `${currentMemberData?.nickname || currentMemberData?.name || user.email} 👑`
@@ -342,8 +344,14 @@ function openEditModal(memberId) {
   // Photo preview
   const preview = document.getElementById('edit-photo-preview');
   const photoURL = m.photoURL && !m.photoURL.startsWith('http') ? '/' + m.photoURL : m.photoURL;
-  if (photoURL) { preview.src = photoURL; preview.style.display = 'block'; }
-  else { preview.src = ''; preview.style.display = 'none'; }
+  if (photoURL) {
+    preview.onerror = () => { preview.style.display = 'none'; preview.src = ''; };
+    preview.src = photoURL;
+    preview.style.display = 'block';
+  } else {
+    preview.src = '';
+    preview.style.display = 'none';
+  }
 
   // Common fields
   document.getElementById('edit-nickname-input').value = m.nickname || '';
