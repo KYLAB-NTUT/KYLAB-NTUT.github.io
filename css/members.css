@@ -1,5 +1,5 @@
 /* ── Avatar lightbox ── */
-.team-avatar-wrap.has-photo { cursor: zoom-in; }
+.team-avatar-wrap.has-photo { cursor: pointer; }
 
 .avatar-lightbox {
   position: fixed;
