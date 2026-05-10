@@ -2057,6 +2057,10 @@ html.dark-theme .pd-goal-num {
   cursor: pointer;
 }
 
+.gl-video-playing {
+  padding-bottom: 63%;
+}
+
 .gl-play-btn {
   position: absolute;
   top: 50%;
@@ -2065,7 +2069,7 @@ html.dark-theme .pd-goal-num {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.55);
   border: 3px solid rgba(255, 255, 255, 0.85);
   cursor: pointer;
   display: flex;
@@ -2073,7 +2077,6 @@ html.dark-theme .pd-goal-num {
   justify-content: center;
   z-index: 2;
   transition: background 0.2s, transform 0.2s, border-color 0.2s;
-  backdrop-filter: blur(4px);
 }
 
 .gl-play-btn::after {
