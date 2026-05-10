@@ -2069,14 +2069,15 @@ html.dark-theme .pd-goal-num {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.55);
-  border: 3px solid rgba(255, 255, 255, 0.85);
+  background: rgba(200, 0, 0, 0.85);
+  border: 3px solid #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .gl-play-btn::after {
@@ -2088,9 +2089,14 @@ html.dark-theme .pd-goal-num {
 }
 
 .gl-video-thumb:hover .gl-play-btn {
-  background: rgba(200, 0, 0, 0.85);
-  border-color: #fff;
-  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+@media (hover: none) {
+  .gl-video-thumb .gl-play-btn {
+    opacity: 1;
+  }
 }
 
 .gl-video-info {
