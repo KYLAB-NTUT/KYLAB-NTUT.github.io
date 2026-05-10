@@ -53,12 +53,9 @@
       <div class="gl-video-grid reveal">
 
         <div class="gl-video-card">
-          <div class="gl-video-embed">
-            <iframe src="https://www.youtube.com/embed/xkfsnWIMpc8?autoplay=1&mute=1&loop=1&playlist=xkfsnWIMpc8&controls=0&playsinline=1&vq=hd1080" title="KY Lab 研究成果展示"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <a href="https://www.youtube.com/watch?v=xkfsnWIMpc8" target="_blank" rel="noopener" class="gl-video-overlay" aria-label="在 YouTube 觀看"></a>
+          <div class="gl-video-embed gl-video-thumb" data-vid="xkfsnWIMpc8">
+            <img src="https://img.youtube.com/vi/xkfsnWIMpc8/maxresdefault.jpg" alt="KY Lab 研究成果展示" loading="lazy">
+            <button class="gl-play-btn" aria-label="播放影片"></button>
           </div>
           <div class="gl-video-info">
             <h3>研究成果展示</h3>
@@ -66,12 +63,9 @@
         </div>
 
         <div class="gl-video-card">
-          <div class="gl-video-embed">
-            <iframe src="https://www.youtube.com/embed/GOsvmJ28YwQ?autoplay=1&mute=1&loop=1&playlist=GOsvmJ28YwQ&controls=0&playsinline=1&vq=hd1080" title="KY Lab 活動紀錄"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <a href="https://youtu.be/GOsvmJ28YwQ" target="_blank" rel="noopener" class="gl-video-overlay" aria-label="在 YouTube 觀看"></a>
+          <div class="gl-video-embed gl-video-thumb" data-vid="GOsvmJ28YwQ">
+            <img src="https://img.youtube.com/vi/GOsvmJ28YwQ/maxresdefault.jpg" alt="KY Lab 活動紀錄" loading="lazy">
+            <button class="gl-play-btn" aria-label="播放影片"></button>
           </div>
           <div class="gl-video-info">
             <h3>活動紀錄</h3>
@@ -102,6 +96,22 @@
 
   <script src="/js/components.js"></script>
   <script src="/js/main.js"></script>
+  <script>
+    document.querySelectorAll('.gl-video-thumb').forEach(function (wrap) {
+      wrap.addEventListener('click', function () {
+        var vid = wrap.dataset.vid;
+        var title = wrap.querySelector('img').alt;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + vid + '?autoplay=1&controls=1&playsinline=1&rel=0';
+        iframe.title = title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.setAttribute('allowfullscreen', '');
+        wrap.innerHTML = '';
+        wrap.classList.remove('gl-video-thumb');
+        wrap.appendChild(iframe);
+      });
+    });
+  </script>
   <script>
     (function () {
       var FOLDER_ID = '1HHxoyxt6y71EgBPXXLb1V6R6s8T1vaLs';
